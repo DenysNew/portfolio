@@ -1,6 +1,6 @@
 # Denys Nevskyi portfolio
 
-Polish portfolio covering **AI and automation**, **IT administration**, and **cybersecurity learning and labs**. The website is static and intended for the user's existing AWS server behind Caddy.
+Polish portfolio covering **AI and automation**, **IT administration**, and **cybersecurity learning and labs**. The static website is published on the user's existing AWS server behind Caddy.
 
 The repository contains public presentation material, not application source code from private projects, secrets, server credentials or original recordings.
 
@@ -46,7 +46,7 @@ Current CV download is a reviewed standalone PDF. Website builds do not silently
 
 ## Deployment
 
-Target: `portfolio.appli-lab.pl` (planned, not claimed live by this README).
+Live: **https://portfolio.appli-lab.pl/** — verified on 2026-11-12.
 See [deployment instructions](docs/DEPLOYMENT.md) and [current handoff](docs/HANDOFF.md).
 
 The supplied GitHub Actions workflow builds and validates changes. It does not deploy to AWS or require credentials.
