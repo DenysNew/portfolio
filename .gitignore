@@ -1,0 +1,13 @@
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.openai/
+.preview/
+private/
+*.pem
+*.key
