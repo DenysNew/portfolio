@@ -83,6 +83,21 @@ ROLLBACK
 
 Если контрольная сумма изменена последующими работами, полный backup не восстанавливать: подготовить конфигурацию без блока портфолио с сохранением новых чужих изменений, проверить и reload. Для следующих выпусков сохранять предыдущую цель `current` и возвращать её через новую ссылку и атомарный `mv -Tf`; Caddy для замены статических файлов перезагружать не нужно.
 
+## Ветка `feat/hero-role-og-fixes` (2026-11-13, Claude, чат claude.ai) — не опубликовано
+
+Основа: `feat/portfolio-initial-site` @ `86eb4bf` (PR #1 ещё не слит), PR в эту ветку.
+
+Сделано:
+- Роль на первом экране: в `content/profile.json` добавлены `role` (как в CV: «Młodszy specjalista ds. AI i automatyzacji procesów»), `seeking` (формулировка из CV) и `siteUrl`. Роль показана блоком над H1, в шапке на десктопе (на мобильном скрыта, чтобы не ломать меню), в `<title>` и meta description; фраза «Szukam roli juniorskiej…» добавлена в конец вступления.
+- Превью ссылок: Open Graph, Twitter card, canonical; `public/og-image.png` 1200×630 из `scripts/og-image.py` (Pillow + DejaVu, запускать вручную после смены имени или роли).
+- Сборка создаёт `robots.txt` и `sitemap.xml`; `npm run check` проверяет роль, OG-теги и эти файлы.
+- CC Practice: alt без «trenażera», подпись без «Interfejs rosyjski».
+- `deploy/Caddyfile.example`: HSTS и `handle_errors 404` → `/404.html`. **На сервере Caddy не менялся**; `caddy validate` для примера не запускался (caddy в среде нет).
+
+Проверено: `npm run build`, `npm run check`, `bash -n scripts/deploy.sh`, `git diff --check`; Chrome headless на локальной сборке — 1440, 768, 390, 375 px без горизонтального переполнения, ошибок консоли нет, `/#security` открывает своё направление, `/og-image.png` отдаётся.
+
+Не сделано (решение владельца): выкладка на сервер; ссылка на портфолио в PDF CV (CV не переписывать без согласования); раздел «Cyberbezpieczeństwo» по-прежнему ссылается на `learning-admin`, где 34 из 77 .md пустые (в т. ч. `nmap.md`, `web-enum.md`, разборы TryHackMe), последний коммит 2026-04-25.
+
 ## Следующий шаг
 
 Владелец проверяет визуальный результат и PR. Дальнейшие изменения контента — отдельная задача; исходный PDF не переписывать автоматически.

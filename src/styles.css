@@ -10,3 +10,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.site-header nav,.hero-aside,.track-nav,.hero-actions,.project-visual,.project-image,.working-section,.contact-section,footer,.skip-link{display:none}body{background:white;color:black}.site-header,.hero,.portfolio-section{padding:12px 0}.hero{display:block}h1{font-size:28px}.project-layout{display:block}.project{break-inside:avoid}.track-panel[hidden]{display:none!important}.project-details{display:none}.tags li{border:1px solid #ccc}}
 .arrow-icon{display:inline-block;width:13px;height:13px;flex:none;vertical-align:middle}.arrow-down{transform:rotate(90deg)}.role-list li:before{content:'•';font-size:12px}
+.hero-role{display:flex;flex-direction:column;gap:6px;margin:0 0 26px;padding-left:14px;border-left:3px solid #7d9465}.hero-role strong{font-size:20px;font-weight:700;letter-spacing:-.3px;line-height:1.2}.hero-role span{font-size:16px;color:#3c5a4a;line-height:1.35}.hero-intro strong{color:var(--ink);font-weight:600}
+@media(max-width:720px){.hero-role strong{font-size:18px}.hero-role span{font-size:14px}.brand-name small{display:none}}

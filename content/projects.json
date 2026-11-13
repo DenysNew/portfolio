@@ -153,8 +153,8 @@
     "images": [
       {
         "src": "/images/projects/cc-practice.jpg",
-        "alt": "Strona główna autorskiego trenażera CC Practice z modułami ćwiczeń",
-        "caption": "CC Practice: działająca strona z ćwiczeniami. Interfejs rosyjski, pytania po angielsku; 12.11.2026."
+        "alt": "Strona główna autorskiej aplikacji do ćwiczeń CC Practice z listą modułów",
+        "caption": "CC Practice: działająca strona z ćwiczeniami do ISC2 CC, 12.11.2026."
       }
     ],
     "visual": "learning",

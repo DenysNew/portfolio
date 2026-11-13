@@ -25,6 +25,10 @@ for(const match of html.matchAll(/(?:href|src|data-image)="(\/[^"#?]*)[^\"]*"/g)
 for(const match of html.matchAll(/href="#([^"]+)"/g))assert(htmlIds.includes(match[1]),`Broken anchor ${match[1]}`);
 for(const match of html.matchAll(/<img\b[^>]+>/g))assert(/alt="[^"]+"/.test(match[0]),'Image missing useful alt text');
 assert(!/DenysOS|TODO|Lorem ipsum/.test(html),'Unfinished or retired content in public page');
+assert(html.includes(`<title>${profile.name} — ${profile.role}</title>`),'Title must state name and role');
+assert(html.includes('class="hero-role"')&&html.includes(profile.role),'Hero must state the role');
+for(const prop of ['og:title','og:description','og:image','og:url'])assert(html.includes(`property="${prop}"`),`Missing ${prop}`);
+await stat('dist/og-image.png');await stat('dist/robots.txt');await stat('dist/sitemap.xml');
 const pdf=await readFile('dist'+profile.cv.url);
 assert.equal(pdf.subarray(0,5).toString(),'%PDF-','Download must be a PDF');
 console.log(`PASS: ${projects.length} projects, 3 tracks, unique anchors, image metadata and local assets including CV.`);

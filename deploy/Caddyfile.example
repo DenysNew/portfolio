@@ -8,6 +8,7 @@ portfolio.appli-lab.pl {
     respond @private 404
 
     header {
+        Strict-Transport-Security "max-age=31536000"
         X-Content-Type-Options nosniff
         Referrer-Policy strict-origin-when-cross-origin
         X-Frame-Options DENY
@@ -15,4 +16,9 @@ portfolio.appli-lab.pl {
     }
 
     file_server
+
+    handle_errors 404 {
+        rewrite * /404.html
+        file_server
+    }
 }
