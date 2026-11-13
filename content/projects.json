@@ -1,0 +1,480 @@
+[
+  {
+    "id": "appli",
+    "name": "APPLI",
+    "subtitle": "Osobisty asystent AI",
+    "status": "Wdrożone MVP",
+    "statusType": "live",
+    "categories": [
+      "ai",
+      "security"
+    ],
+    "summary": "Aplikacja do planowania i finansów osobistych. Rozwijam ją od reguł działania i scenariuszy użytkownika po sprawdzanie gotowych funkcji.",
+    "roles": [
+      "Określam wymagania i organizuję rozwój z agentami programistycznymi.",
+      "Sprawdzam odpowiedzi AI, potwierdzanie operacji i uprawnienia użytkowników.",
+      "Analizuję błędy i opóźnienia; porównuję modele pod kątem jakości, czasu i kosztów."
+    ],
+    "details": [
+      {
+        "title": "Co obejmuje projekt",
+        "text": "Planowanie zadań, harmonogram i finanse osobiste połączone z asystentem AI. Rozwój obejmuje reguły danych, interakcje użytkownika i kontrolowane wykonywanie proponowanych operacji."
+      },
+      {
+        "title": "Moja codzienna praca",
+        "text": "Przekładam potrzeby na scenariusze i kryteria akceptacji, zlecam zmiany agentom, sprawdzam działanie aplikacji i kieruję poprawkami. Kod powstaje ze wsparciem Claude Code i Codex."
+      },
+      {
+        "title": "Dostęp i niezawodność",
+        "text": "Pracowałem nad zasadami dostępu do aplikacji, potwierdzaniem działań AI oraz diagnozowaniem problemów z walidacją i czasem odpowiedzi. Aplikacja pozostaje rozwijanym MVP."
+      }
+    ],
+    "stack": [
+      "OpenAI API",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "GitHub"
+    ],
+    "links": [
+      {
+        "label": "Otwórz APPLI",
+        "url": "https://appli-lab.pl/"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/appli-planning-demo.jpg",
+        "alt": "APPLI — planowanie tygodnia i analiza dnia w trybie demonstracyjnym",
+        "caption": "APPLI: planowanie i analiza dnia. Publiczne demo z przykładowymi danymi, 12.11.2026."
+      },
+      {
+        "src": "/images/projects/appli-finance-demo.jpg",
+        "alt": "APPLI — podsumowanie finansów i analiza w trybie demonstracyjnym",
+        "caption": "APPLI: finanse. Publiczne demo z przykładowymi danymi, 12.11.2026."
+      }
+    ],
+    "visual": "appli",
+    "reviewed": "2026-11-12"
+  },
+  {
+    "id": "agents",
+    "name": "Środowisko agentów AI",
+    "subtitle": "Claude Code i Codex w jednym procesie",
+    "status": "W codziennej pracy",
+    "statusType": "practice",
+    "categories": [
+      "ai",
+      "admin"
+    ],
+    "summary": "Gdy przybyło projektów i przeglądów kodu, uporządkowałem sposób pracy agentów: zadania, kontekst, oddzielne zmiany i weryfikację wyników.",
+    "roles": [
+      "Dzielę prace na zadania, gałęzie Git i pull requesty.",
+      "Organizuję przekazywanie kontekstu i sprawdzanie zmian przez drugiego agenta.",
+      "Podejmuję decyzje o przyjęciu zmian i dalszych krokach."
+    ],
+    "details": [
+      {
+        "title": "Dlaczego powstało",
+        "text": "Równoległa praca nad kilkoma projektami wymagała powtarzalnego sposobu przekazywania stanu prac i weryfikacji wyników. Dostosowałem środowisko do własnego sposobu działania."
+      },
+      {
+        "title": "Jak pracuję",
+        "text": "Claude Code i Codex pracują na Ubuntu z GitHub, oddzielnymi katalogami roboczymi i dokumentacją HANDOFF. Dokumentacja projektu oraz wspólny kontekst na Google Drive pomagają kontynuować zadania między sesjami."
+      },
+      {
+        "title": "Kontrola procesu",
+        "text": "Zakres zadania, przyjęcie zmian i publikacja pozostają pod moją kontrolą. Stopień automatyzacji poszczególnych etapów jest rozwijany i weryfikowany osobno."
+      }
+    ],
+    "stack": [
+      "Claude Code",
+      "Codex",
+      "Git / worktree",
+      "Ubuntu",
+      "SSH / tmux",
+      "Google Drive"
+    ],
+    "links": [],
+    "images": [],
+    "visual": "agents",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład współpracy agentów",
+      "title": "Od zadania do przyjętej zmiany",
+      "steps": [
+        {
+          "title": "Zadanie i wspólny kontekst",
+          "text": "Opisuję oczekiwane działanie. Agent korzysta z dokumentacji projektu i materiałów na Google Drive."
+        },
+        {
+          "title": "Zmiana w osobnym worktree",
+          "text": "Claude Code lub Codex wykonuje wydzielone zadanie na gałęzi Git, oddzielnie od pozostałych prac."
+        },
+        {
+          "title": "Przegląd przez drugiego agenta",
+          "text": "Drugi agent sprawdza zmianę. Uwagi wracają do autora jako poprawki."
+        },
+        {
+          "title": "Moja weryfikacja i decyzja",
+          "text": "Sprawdzam rezultat w aplikacji i decyduję o przyjęciu zmiany oraz publikacji."
+        }
+      ],
+      "note": "Kolejna sesja zaczyna od HANDOFF: stanu prac, wyników sprawdzenia i następnego kroku."
+    }
+  },
+  {
+    "id": "learning",
+    "name": "Narzędzia do nauki",
+    "subtitle": "ISC2 CC, English Practice i materiały audio",
+    "status": "Rozwijane projekty",
+    "statusType": "practice",
+    "categories": [
+      "ai"
+    ],
+    "summary": "Tworzę narzędzia do własnej nauki: stronę z pytaniami i wyjaśnieniami oraz materiały, z których korzystam w formie tekstu, audio i wideo.",
+    "roles": [
+      "Rozwijam scenariusze ćwiczeń i sposób prezentacji wyjaśnień.",
+      "Przygotowuję treść i nagrania z pomocą AI oraz narzędzi syntezy mowy.",
+      "Organizuję pliki na Google Drive i pracuję nad ich publikacją."
+    ],
+    "details": [
+      {
+        "title": "Aplikacje edukacyjne",
+        "text": "ISC2 CC Practice i English Practice łączą pytania, wyjaśnienia i słownictwo. Są częścią mojego własnego procesu uczenia się, a nie potwierdzeniem posiadania certyfikatu."
+      },
+      {
+        "title": "Materiały audio i wideo",
+        "text": "Wykorzystuję AI do przygotowania treści, ElevenLabs i inne narzędzia TTS do nagrań oraz narzędzia obróbki audio do dopasowania materiałów do słuchania. Wybrane materiały publikuję na YouTube."
+      },
+      {
+        "title": "Wspólne materiały",
+        "text": "Google Drive służy do przechowywania plików źródłowych i wyników oraz do pracy z materiałami przez podłączone narzędzia i agentów. Poszczególne etapy mają różny stopień automatyzacji."
+      }
+    ],
+    "stack": [
+      "HTML / CSS / JavaScript",
+      "ElevenLabs",
+      "FFmpeg",
+      "Google Drive",
+      "AI"
+    ],
+    "links": [
+      {
+        "label": "Otwórz stronę z ćwiczeniami",
+        "url": "https://cc.appli-lab.pl/"
+      },
+      {
+        "label": "English Practice",
+        "url": "https://cc.appli-lab.pl/english.html"
+      },
+      {
+        "label": "Przykład materiału na YouTube",
+        "url": "https://www.youtube.com/watch?v=GprTfIT8-1c"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/cc-practice.jpg",
+        "alt": "Strona główna autorskiego trenażera CC Practice z modułami ćwiczeń",
+        "caption": "CC Practice: działająca strona z ćwiczeniami. Interfejs rosyjski, pytania po angielsku; 12.11.2026."
+      }
+    ],
+    "visual": "learning",
+    "reviewed": "2026-11-12"
+  },
+  {
+    "id": "audio",
+    "name": "Przetwarzanie nagrań",
+    "subtitle": "Działający proces i rozwój Audio Studio",
+    "status": "Proces działa · aplikacja w rozwoju",
+    "statusType": "development",
+    "categories": [
+      "ai"
+    ],
+    "summary": "Przetwarzam nagrania kazań z użyciem AI. Działający proces obejmuje transkrypcję, pracę z tekstem i zapis wyników na Google Drive; Audio Studio rozwijam jako jego interfejs.",
+    "roles": [
+      "Organizuję przygotowanie nagrania, transkrypcję i przechowywanie wyników.",
+      "Pracuję z rozpoznawaniem mowy na GPU i posłownymi znacznikami czasu.",
+      "Sprawdzam kompletność plików i planuję kolejne etapy integracji."
+    ],
+    "details": [
+      {
+        "title": "Co już wykorzystuję",
+        "text": "Transkrypcję nagrań, tekst oraz znaczniki czasu, a także przenoszenie i kontrolę plików między serwerem a Google Drive. Proces obejmuje ręczne uruchamianie i weryfikację."
+      },
+      {
+        "title": "Co rozwijam",
+        "text": "Audio Studio ma połączyć etapy pracy w aplikacji. Integracja interfejsu z przetwarzaniem na odległych serwerach, montaż i publikacja są rozwijane osobno; nie przedstawiam ich jako ukończonego automatycznego procesu."
+      }
+    ],
+    "stack": [
+      "Whisper",
+      "CUDA / GPU",
+      "Python",
+      "FFmpeg",
+      "rclone",
+      "Google Drive"
+    ],
+    "links": [],
+    "images": [],
+    "visual": "audio",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład pracy z nagraniem",
+      "title": "Nagranie → tekst ze znacznikami czasu",
+      "steps": [
+        {
+          "title": "Plik źródłowy",
+          "text": "Przygotowuję nagranie do przetwarzania i zachowuję jego oryginał."
+        },
+        {
+          "title": "Whisper na GPU",
+          "text": "Uruchamiam transkrypcję. Wyniki obejmują tekst i znaczniki czasu poszczególnych słów."
+        },
+        {
+          "title": "Kontrola i Google Drive",
+          "text": "Sprawdzam kompletność wyników, przenoszę je przez rclone i weryfikuję zgodność plików."
+        }
+      ],
+      "note": "Ten proces uruchamiam i weryfikuję ręcznie. Interfejs Audio Studio rozwijam osobno."
+    }
+  },
+  {
+    "id": "hybrid",
+    "name": "Laboratorium hybrydowe Microsoft",
+    "subtitle": "Tożsamość, urządzenia i dostęp",
+    "status": "Praktyka laboratoryjna",
+    "statusType": "lab",
+    "categories": [
+      "admin",
+      "security"
+    ],
+    "summary": "Łączę lokalne Active Directory z usługami Microsoft w chmurze. Sprawdzam dołączanie urządzeń, zarządzanie nimi i zasady dostępu.",
+    "roles": [
+      "Pracuję z AD, GPO i synchronizacją do Entra ID.",
+      "Konfiguruję rejestrację urządzeń w Intune i sprawdzam zgodność.",
+      "Testuję MFA, Conditional Access i dostęp przez OpenVPN."
+    ],
+    "details": [
+      {
+        "title": "Środowisko",
+        "text": "Kontroler domeny, stacja administracyjna i kliencka oraz serwer Ubuntu z OpenVPN. Zadania administracyjne wykonuję ze stacji administracyjnej."
+      },
+      {
+        "title": "Przykłady weryfikacji",
+        "text": "Sprawdzałem automatyczną rejestrację urządzeń przez GPO, Hybrid Join, zarządzanie w Intune i zachowanie zasad wymagających MFA oraz zgodnego urządzenia."
+      },
+      {
+        "title": "Zakres doświadczenia",
+        "text": "To własne środowisko laboratoryjne, które służy nauce i odtwarzaniu scenariuszy. Nie jest przedstawiane jako komercyjne wdrożenie dla klienta."
+      }
+    ],
+    "stack": [
+      "Active Directory",
+      "GPO",
+      "Entra ID",
+      "Intune",
+      "Conditional Access",
+      "OpenVPN"
+    ],
+    "links": [],
+    "images": [],
+    "visual": "hybrid",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład z home labu",
+      "title": "Zgodność urządzenia a dostęp do usługi",
+      "steps": [
+        {
+          "title": "Rejestracja urządzenia",
+          "text": "Sprawdzam Hybrid Join i automatyczną rejestrację w Intune przez GPO."
+        },
+        {
+          "title": "Warunki dostępu",
+          "text": "Konfiguruję zasadę Conditional Access wymagającą MFA i zgodnego urządzenia."
+        },
+        {
+          "title": "Porównanie wyniku",
+          "text": "W laboratorium zgodne urządzenie uzyskuje dostęp, a komputer niespełniający warunku jest blokowany."
+        }
+      ],
+      "note": "Własne środowisko laboratoryjne. Administrację wykonuję ze stacji administracyjnej."
+    }
+  },
+  {
+    "id": "infrastructure",
+    "name": "Infrastruktura własnych projektów",
+    "subtitle": "Serwery, dostęp i publikacja",
+    "status": "Środowisko projektowe",
+    "statusType": "practice",
+    "categories": [
+      "admin"
+    ],
+    "summary": "Utrzymuję środowisko do rozwoju i uruchamiania własnych projektów. Łączę pracę na serwerach Linux z konfiguracją dostępu i publikowaniem aplikacji.",
+    "roles": [
+      "Pracuję z instancjami AWS EC2 i zdalnym dostępem SSH.",
+      "Korzystam z Docker oraz serwerów WWW przy uruchamianiu projektów.",
+      "Sprawdzam usługi, logi i połączenia podczas diagnozowania problemów."
+    ],
+    "details": [
+      {
+        "title": "Praktyczny zakres",
+        "text": "Ubuntu, AWS EC2, SSH i VS Code Remote, praca z Docker, domenami i HTTPS. Serwery pełnią różne role: rozwój, aplikacje oraz przetwarzanie nagrań."
+      },
+      {
+        "title": "Eksploatacja",
+        "text": "Uwzględniam dostęp do środowiska, kopie danych i koszty zasobów. Nowe elementy wdrażam etapami i sprawdzam ich zachowanie."
+      }
+    ],
+    "stack": [
+      "Ubuntu",
+      "AWS EC2",
+      "SSH",
+      "Docker",
+      "Caddy / nginx",
+      "GitHub"
+    ],
+    "links": [],
+    "images": [],
+    "visual": "infrastructure",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład publikacji strony",
+      "title": "Własny projekt pod adresem HTTPS",
+      "steps": [
+        {
+          "title": "Przygotowanie plików",
+          "text": "Organizuję wersję strony do publikacji i pracę na serwerze Ubuntu przez SSH."
+        },
+        {
+          "title": "Domena i serwer WWW",
+          "text": "Łączę poddomenę z serwerem oraz konfigurację Caddy lub nginx z plikami strony."
+        },
+        {
+          "title": "Sprawdzenie działania",
+          "text": "Otwieram stronę przez HTTPS, sprawdzam odnośniki, obrazy i logi przy diagnozowaniu problemów."
+        }
+      ],
+      "note": "Tak łączę pracę nad własnymi aplikacjami z utrzymaniem ich środowiska."
+    }
+  },
+  {
+    "id": "adminlab",
+    "name": "Learning Admin Lab",
+    "subtitle": "Dokumentacja i praktyka systemowa",
+    "status": "Laboratorium i notatki",
+    "statusType": "lab",
+    "categories": [
+      "admin"
+    ],
+    "summary": "Prowadzę repozytorium praktyki z Linux, Windows i podstaw bezpieczeństwa. Zapisuję polecenia, obserwacje i wnioski z ćwiczeń.",
+    "roles": [
+      "Ćwiczę pracę z użytkownikami, uprawnieniami, usługami i procesami.",
+      "Analizuję logi i połączenia sieciowe w środowisku laboratoryjnym.",
+      "Porządkuję dokumentację i zmiany z użyciem Git."
+    ],
+    "details": [
+      {
+        "title": "Forma pracy",
+        "text": "Maszyny wirtualne Ubuntu, Kali Linux i Windows, uporządkowane notatki oraz artefakty ćwiczeń. Repozytorium pokazuje przebieg nauki i obszary, które rozwijam."
+      }
+    ],
+    "stack": [
+      "Linux",
+      "Windows",
+      "VirtualBox",
+      "Git",
+      "Logi systemowe"
+    ],
+    "links": [
+      {
+        "label": "Zobacz repozytorium",
+        "url": "https://github.com/DenysNew/learning-admin"
+      }
+    ],
+    "images": [],
+    "visual": "adminlab",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład pracy z dokumentacją",
+      "title": "Od polecenia do notatki w Git",
+      "steps": [
+        {
+          "title": "Ćwiczenie na maszynie wirtualnej",
+          "text": "Pracuję z użytkownikami, uprawnieniami lub usługami w Linux i Windows."
+        },
+        {
+          "title": "Polecenie i obserwacja",
+          "text": "Zapisuję wykonane polecenie, wynik i wniosek z analizy logów lub konfiguracji."
+        },
+        {
+          "title": "Zmiana w repozytorium",
+          "text": "Porządkuję notatkę w VS Code i zapisuję jej historię z użyciem Git oraz GitHub."
+        }
+      ],
+      "note": "Repozytorium jest rozwijanym zapisem nauki i ćwiczeń."
+    }
+  },
+  {
+    "id": "securitylab",
+    "name": "Praktyka cyberbezpieczeństwa",
+    "subtitle": "Laboratoria, analiza i ISC2 CC",
+    "status": "Kierunek w rozwoju",
+    "statusType": "lab",
+    "categories": [
+      "security"
+    ],
+    "summary": "Rozwijam podstawy bezpieczeństwa przez zadania TryHackMe, analizę działania usług i przygotowanie do ISC2 Certified in Cybersecurity.",
+    "roles": [
+      "Ćwiczę identyfikację usług i interpretację wyników Nmap.",
+      "Analizuję żądania HTTP, mechanizmy sesji i zasady dostępu w laboratoriach.",
+      "Dokumentuję obserwacje i utrwalam podstawy bezpieczeństwa."
+    ],
+    "details": [
+      {
+        "title": "Praktyka",
+        "text": "Pracuję w środowiskach szkoleniowych i na własnych projektach. Uczę się łączyć obserwację działania systemu z oceną dostępu, konfiguracji i ryzyka."
+      },
+      {
+        "title": "Rozwój wiedzy",
+        "text": "Przygotowuję się do ISC2 CC. Certyfikat nie został jeszcze uzyskany. Ten obszar portfolio przedstawia naukę i praktykę laboratoryjną."
+      }
+    ],
+    "stack": [
+      "TryHackMe",
+      "Nmap",
+      "HTTP",
+      "Kontrola dostępu",
+      "ISC2 CC — nauka"
+    ],
+    "links": [
+      {
+        "label": "Notatki i laboratoria",
+        "url": "https://github.com/DenysNew/learning-admin"
+      }
+    ],
+    "images": [],
+    "visual": "securitylab",
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład ćwiczenia TryHackMe",
+      "title": "Od otwartej usługi do odpowiedzi HTTP",
+      "steps": [
+        {
+          "title": "Rozpoznanie usługi",
+          "text": "Interpretuję wynik Nmap: otwarte porty, usługi i rozpoznane wersje."
+        },
+        {
+          "title": "Obserwacja HTTP",
+          "text": "Analizuję żądanie i odpowiedź: status, nagłówki oraz działanie sesji."
+        },
+        {
+          "title": "Wniosek z ćwiczenia",
+          "text": "Łączę obserwację z zasadami dostępu i zapisuję, jak działa badany mechanizm."
+        }
+      ],
+      "note": "Ćwiczenia w środowiskach szkoleniowych. Równolegle przygotowuję się do ISC2 CC."
+    }
+  }
+]

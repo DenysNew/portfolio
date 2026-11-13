@@ -1,0 +1,12 @@
+{
+  "title": "AI i automatyzacja procesów",
+  "language": "pl",
+  "source": "Curated short descriptions; PDF generation is not enabled yet",
+  "profile": "Na co dzień wykorzystuję AI w rozwoju własnych aplikacji, organizacji pracy i przygotowywaniu materiałów. Określam wymagania, organizuję pracę agentów i sprawdzam wyniki. Szukam roli juniorskiej w obszarze AI i automatyzacji.",
+  "projects": [
+    {"id":"appli","description":"Rozwijam wdrożone MVP asystenta AI do planowania i finansów. Definiuję reguły działania, organizuję rozwój z agentami i sprawdzam funkcje."},
+    {"id":"agents","description":"Pracuję z Claude Code i Codex, organizując podział zadań, przekazywanie kontekstu i weryfikację zmian."},
+    {"id":"audio","description":"Wykorzystuję AI do transkrypcji i pracy z nagraniami, z przechowywaniem wyników na Google Drive. Rozwijam aplikację Audio Studio."}
+  ],
+  "includePortfolioUrlWhenLive": "https://portfolio.appli-lab.pl/#ai"
+}

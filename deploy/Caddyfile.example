@@ -1,0 +1,18 @@
+# Add this block to the EXISTING Caddy configuration only after confirming
+# DNS, server identity, filesystem permissions and the current live sites.
+portfolio.appli-lab.pl {
+    root * /var/www/portfolio/current
+    encode zstd gzip
+
+    @private path /.git/* /.env /content/* /scripts/* /docs/* /deploy/*
+    respond @private 404
+
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        X-Frame-Options DENY
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'"
+    }
+
+    file_server
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Denys Nevskyi",
+  "location": "Warszawa, Polska",
+  "email": "dennik333@gmail.com",
+  "github": "https://github.com/DenysNew",
+  "linkedin": "https://www.linkedin.com/in/denys-nevskyi",
+  "title": "Portfolio projektów IT",
+  "intro": "Na co dzień rozwijam aplikacje z AI, organizuję pracę agentów i utrzymuję własne środowisko IT.",
+  "updated": "2026-11-14",
+  "languages": "Polski — zaawansowany · Angielski — podstawowy, w nauce · Ukraiński i rosyjski — ojczyste",
+  "cv": {
+    "label": "CV — AI i automatyzacja",
+    "url": "/cv/Denys_Nevskyi_CV_AI_Automation_PL.pdf"
+  },
+  "tracks": [
+    {
+      "id": "ai",
+      "label": "AI i automatyzacja",
+      "number": "01",
+      "eyebrow": "Główne obszary praktyki",
+      "title": "AI w codziennej pracy nad projektami.",
+      "description": "Rozwijam APPLI, organizuję współpracę agentów i wykorzystuję AI do przetwarzania nagrań oraz tworzenia materiałów edukacyjnych.",
+      "tags": [
+        "Claude Code / Codex",
+        "API OpenAI",
+        "Praca z treścią",
+        "Integracje"
+      ],
+      "order": [
+        "appli",
+        "agents",
+        "learning",
+        "audio"
+      ],
+      "context": "Działające aplikacje, współpraca agentów i przetwarzanie nagrań — projekty, z których korzystam na co dzień."
+    },
+    {
+      "id": "admin",
+      "label": "Administracja IT",
+      "number": "02",
+      "eyebrow": "Środowisko projektowe i home lab",
+      "title": "Środowisko, które potrafię uruchomić i sprawdzić.",
+      "description": "Pracuję z serwerami Linux i AWS. W laboratorium łączę Active Directory z Entra ID i Intune, konfiguruję dostęp i sprawdzam zachowanie urządzeń.",
+      "tags": [
+        "Linux / AWS",
+        "AD / Entra ID",
+        "Intune",
+        "OpenVPN"
+      ],
+      "order": [
+        "hybrid",
+        "infrastructure",
+        "adminlab",
+        "agents"
+      ],
+      "context": "Serwery własnych projektów i laboratorium Microsoft: uruchamianie usług, zarządzanie urządzeniami i dostępem."
+    },
+    {
+      "id": "security",
+      "label": "Cyberbezpieczeństwo",
+      "number": "03",
+      "eyebrow": "Nauka i praktyka laboratoryjna",
+      "title": "Rozumiem systemy, ucząc się ich ochrony.",
+      "description": "Rozwijam wiedzę przez zadania TryHackMe, analizę dostępu we własnych projektach i przygotowanie do ISC2 CC. To kierunek, który obecnie rozwijam.",
+      "tags": [
+        "Kontrola dostępu",
+        "Nmap / HTTP",
+        "TryHackMe",
+        "Nauka ISC2 CC"
+      ],
+      "order": [
+        "securitylab",
+        "hybrid",
+        "appli"
+      ],
+      "context": "Kierunek w rozwoju: laboratoria TryHackMe, kontrola dostępu i nauka do ISC2 CC."
+    }
+  ]
+}
