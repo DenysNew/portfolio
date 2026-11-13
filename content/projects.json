@@ -98,7 +98,30 @@
     "links": [],
     "images": [],
     "visual": "agents",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład współpracy agentów",
+      "title": "Od zadania do przyjętej zmiany",
+      "steps": [
+        {
+          "title": "Zadanie i wspólny kontekst",
+          "text": "Opisuję oczekiwane działanie. Agent korzysta z dokumentacji projektu i materiałów na Google Drive."
+        },
+        {
+          "title": "Zmiana w osobnym worktree",
+          "text": "Claude Code lub Codex wykonuje wydzielone zadanie na gałęzi Git, oddzielnie od pozostałych prac."
+        },
+        {
+          "title": "Przegląd przez drugiego agenta",
+          "text": "Drugi agent sprawdza zmianę. Uwagi wracają do autora jako poprawki."
+        },
+        {
+          "title": "Moja weryfikacja i decyzja",
+          "text": "Sprawdzam rezultat w aplikacji i decyduję o przyjęciu zmiany oraz publikacji."
+        }
+      ],
+      "note": "Kolejna sesja zaczyna od HANDOFF: stanu prac, wyników sprawdzenia i następnego kroku."
+    }
   },
   {
     "id": "learning",
@@ -196,7 +219,26 @@
     "links": [],
     "images": [],
     "visual": "audio",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład pracy z nagraniem",
+      "title": "Nagranie → tekst ze znacznikami czasu",
+      "steps": [
+        {
+          "title": "Plik źródłowy",
+          "text": "Przygotowuję nagranie do przetwarzania i zachowuję jego oryginał."
+        },
+        {
+          "title": "Whisper na GPU",
+          "text": "Uruchamiam transkrypcję. Wyniki obejmują tekst i znaczniki czasu poszczególnych słów."
+        },
+        {
+          "title": "Kontrola i Google Drive",
+          "text": "Sprawdzam kompletność wyników, przenoszę je przez rclone i weryfikuję zgodność plików."
+        }
+      ],
+      "note": "Ten proces uruchamiam i weryfikuję ręcznie. Interfejs Audio Studio rozwijam osobno."
+    }
   },
   {
     "id": "hybrid",
@@ -239,7 +281,26 @@
     "links": [],
     "images": [],
     "visual": "hybrid",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład z home labu",
+      "title": "Zgodność urządzenia a dostęp do usługi",
+      "steps": [
+        {
+          "title": "Rejestracja urządzenia",
+          "text": "Sprawdzam Hybrid Join i automatyczną rejestrację w Intune przez GPO."
+        },
+        {
+          "title": "Warunki dostępu",
+          "text": "Konfiguruję zasadę Conditional Access wymagającą MFA i zgodnego urządzenia."
+        },
+        {
+          "title": "Porównanie wyniku",
+          "text": "W laboratorium zgodne urządzenie uzyskuje dostęp, a komputer niespełniający warunku jest blokowany."
+        }
+      ],
+      "note": "Własne środowisko laboratoryjne. Administrację wykonuję ze stacji administracyjnej."
+    }
   },
   {
     "id": "infrastructure",
@@ -277,7 +338,26 @@
     "links": [],
     "images": [],
     "visual": "infrastructure",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład publikacji strony",
+      "title": "Własny projekt pod adresem HTTPS",
+      "steps": [
+        {
+          "title": "Przygotowanie plików",
+          "text": "Organizuję wersję strony do publikacji i pracę na serwerze Ubuntu przez SSH."
+        },
+        {
+          "title": "Domena i serwer WWW",
+          "text": "Łączę poddomenę z serwerem oraz konfigurację Caddy lub nginx z plikami strony."
+        },
+        {
+          "title": "Sprawdzenie działania",
+          "text": "Otwieram stronę przez HTTPS, sprawdzam odnośniki, obrazy i logi przy diagnozowaniu problemów."
+        }
+      ],
+      "note": "Tak łączę pracę nad własnymi aplikacjami z utrzymaniem ich środowiska."
+    }
   },
   {
     "id": "adminlab",
@@ -315,7 +395,26 @@
     ],
     "images": [],
     "visual": "adminlab",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład pracy z dokumentacją",
+      "title": "Od polecenia do notatki w Git",
+      "steps": [
+        {
+          "title": "Ćwiczenie na maszynie wirtualnej",
+          "text": "Pracuję z użytkownikami, uprawnieniami lub usługami w Linux i Windows."
+        },
+        {
+          "title": "Polecenie i obserwacja",
+          "text": "Zapisuję wykonane polecenie, wynik i wniosek z analizy logów lub konfiguracji."
+        },
+        {
+          "title": "Zmiana w repozytorium",
+          "text": "Porządkuję notatkę w VS Code i zapisuję jej historię z użyciem Git oraz GitHub."
+        }
+      ],
+      "note": "Repozytorium jest rozwijanym zapisem nauki i ćwiczeń."
+    }
   },
   {
     "id": "securitylab",
@@ -357,6 +456,25 @@
     ],
     "images": [],
     "visual": "securitylab",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "process": {
+      "label": "Przykład ćwiczenia TryHackMe",
+      "title": "Od otwartej usługi do odpowiedzi HTTP",
+      "steps": [
+        {
+          "title": "Rozpoznanie usługi",
+          "text": "Interpretuję wynik Nmap: otwarte porty, usługi i rozpoznane wersje."
+        },
+        {
+          "title": "Obserwacja HTTP",
+          "text": "Analizuję żądanie i odpowiedź: status, nagłówki oraz działanie sesji."
+        },
+        {
+          "title": "Wniosek z ćwiczenia",
+          "text": "Łączę obserwację z zasadami dostępu i zapisuję, jak działa badany mechanizm."
+        }
+      ],
+      "note": "Ćwiczenia w środowiskach szkoleniowych. Równolegle przygotowuję się do ISC2 CC."
+    }
   }
 ]
