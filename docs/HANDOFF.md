@@ -1,8 +1,54 @@
 # HANDOFF — Portfolio
 
+## Публикация доработки — 2026-11-13 UTC / 2026-11-14 Europe/Warsaw
+
+Статус: **опубликовано и проверено** на https://portfolio.appli-lab.pl/.
+
+- Ветка: `refine/portfolio-process-examples-v1`, [PR #3](https://github.com/DenysNew/portfolio/pull/3).
+- Точный SHA исходников: `4ad5f1c03ed152a2711b27dc5a2a8ea89ec68b15`. Последующий коммит этого отчёта меняет только документацию.
+- Выпуск: `/var/www/portfolio/releases/20261113T233114Z-4ad5f1c03ed1`.
+- Новая цель `/var/www/portfolio/current`: `releases/20261113T233114Z-4ad5f1c03ed1`.
+- Прежняя цель для отката: `releases/20261112T182811Z-2b01cf8e298c`; прежний выпуск сохранён.
+- Сборка выполнена в чистом checkout указанной ветки. Другие PR, включая ветку с формулировкой junior, не включались; слияние PR не выполнялось.
+- Использована процедура `scripts/deploy.sh` с дополнительной сверкой: переданы только 9 штатных файлов `dist/`, SHA-256 каждого файла и отсутствие дополнительных файлов/симлинков проверены на сервере до атомарного `mv -Tf` ссылки `current`. Временной QA-страницы нет.
+- SHA-256 `/etc/caddy/Caddyfile` до и после: `0c1e7032cffb5b5cae3fe792137c8a65a73010595c423b745493dea59480bb97`. Конфигурация, DNS и доступы не менялись; reload/restart не выполнялся. Caddy active.
+
+### Проверено при публикации
+
+- `npm run build`, `npm run check`, `node --check scripts/build.mjs`, `bash -n scripts/deploy.sh`, `git diff --check` — успешно.
+- HTTPS 200 с обычной проверкой TLS; HTTP → HTTPS 308. Все 9 публичных файлов побайтно совпадают со свежей сборкой.
+- CV в исходниках, сборке и публичном ответе имеет SHA-256 `07215bd5f59e15b2cef60c82eb6601f99330e8dda9cab4c92e96d6c9147419b3`; скачивание кнопкой через Chromium прошло, PDF неизменён.
+- Chromium/Playwright на локальной сборке и публичном сайте: прямые ссылки `/#ai`, `/#admin`, `/#security`, один видимый раздел, переключение направлений, ArrowRight/Home/End, раскрытие деталей через Enter, увеличение изображения, Escape и возврат фокуса.
+- Ширины 320, 375, 390 и 768 px: горизонтального переполнения нет во всех направлениях. Проверен режим reduced motion; ошибок JS/console нет. Просмотрены desktop/mobile скриншоты локальной сборки.
+- CC `/` и `/english.html` до и после: HTTPS 200, тела ответов побайтно совпадают.
+- `/.git/config`, `/.env`, `/docs/HANDOFF.md`, `/content/projects.json`, `/scripts/build.mjs`, `/qa.html` возвращают 404.
+- Подробные локальные результаты и манифест: `~/work/tmp/portfolio-refine-publish-20261113/` (не публикуются как файлы сайта).
+
+Независимое ревью, Safari/Firefox, физические устройства и screen reader в этой публикации не проверялись. Это проверка публикации владельцем порученной версии, не подтверждение работы описанных в портфолио внутренних приложений.
+
+### Откат этого выпуска
+
+Команды подготовлены; откат не потребовался и не выполнялся. Проверка текущей цели предотвращает перезапись последующей публикации. Caddyfile остаётся без изменений.
+
+```bash
+ssh -o BatchMode=yes audio-app 'bash -se' <<'ROLLBACK'
+set -euo pipefail
+cd /var/www/portfolio
+[ "$(readlink current)" = 'releases/20261113T233114Z-4ad5f1c03ed1' ]
+[ -d 'releases/20261112T182811Z-2b01cf8e298c' ]
+[ ! -e current.rollback ] && [ ! -L current.rollback ]
+ln -s 'releases/20261112T182811Z-2b01cf8e298c' current.rollback
+mv -Tf current.rollback current
+readlink current
+ROLLBACK
+curl --fail --silent --show-error -o /dev/null https://portfolio.appli-lab.pl/
+```
+
+Следующий шаг: владелец оценивает опубликованную версию и решает по PR #3. Дополнительная публикация для этой задачи не требуется.
+
 ## Доработка первого экрана и примеров — 2026-11-14
 
-Статус: изменения подготовлены и проверены локально. Эта версия ещё не опубликована на production.
+Исторический статус подготовки: изменения проверены локально. Публикация уже выполнена; фактический результат приведён в разделе выше.
 
 Ветка: `refine/portfolio-process-examples-v1`, основана на `feat/portfolio-initial-site` (опубликованная версия). Другую открытую ветку с формулировкой junior не включать.
 
