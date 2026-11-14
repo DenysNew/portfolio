@@ -86,8 +86,7 @@
     "status": "W codziennej pracy",
     "statusType": "practice",
     "categories": [
-      "ai",
-      "admin"
+      "ai"
     ],
     "summary": "Gdy przybyło zadań i przeglądów kodu, zorganizowałem pracę Claude Code i Codex w jednym procesie na serwerze. Zadania przechodzą przez wykonanie, sprawdzenie i poprawki, także gdy mój komputer jest wyłączony.",
     "roles": [
@@ -378,179 +377,213 @@
   },
   {
     "id": "hybrid",
-    "name": "Laboratorium hybrydowe Microsoft",
-    "subtitle": "Tożsamość, urządzenia i dostęp",
+    "name": "Active Directory i Microsoft 365",
+    "subtitle": "Użytkownicy, urządzenia i dostęp",
     "status": "Praktyka laboratoryjna",
     "statusType": "lab",
     "categories": [
       "admin",
       "security"
     ],
-    "summary": "Łączę lokalne Active Directory z usługami Microsoft w chmurze. Sprawdzam dołączanie urządzeń, zarządzanie nimi i zasady dostępu.",
+    "summary": "Zbudowałem laboratorium z domeną Windows Server, stacją administracyjną i klientami. Połączyłem lokalne konta z Entra ID, a urządzenia objąłem zarządzaniem w Intune.",
     "roles": [
-      "Pracuję z AD, GPO i synchronizacją do Entra ID.",
-      "Konfiguruję rejestrację urządzeń w Intune i sprawdzam zgodność.",
-      "Testuję MFA, Conditional Access i dostęp przez OpenVPN."
+      "Konfiguracja AD i synchronizacji, zarządzanie kontami i licencjami oraz sprawdzenie zasad dostępu na różnych urządzeniach."
     ],
     "details": [
       {
-        "title": "Środowisko",
-        "text": "Kontroler domeny, stacja administracyjna i kliencka oraz serwer Ubuntu z OpenVPN. Zadania administracyjne wykonuję ze stacji administracyjnej."
+        "title": "Domena i użytkownicy",
+        "text": "Utworzyłem strukturę OU, użytkowników i grupy. Administrację prowadzę ze stacji z narzędziami RSAT. Sprawdziłem zmianę danych użytkownika w AD, synchronizację do Entra ID oraz dostęp do Teams po włączeniu i wyłączeniu usługi w licencji."
       },
       {
-        "title": "Przykłady weryfikacji",
-        "text": "Sprawdzałem automatyczną rejestrację urządzeń przez GPO, Hybrid Join, zarządzanie w Intune i zachowanie zasad wymagających MFA oraz zgodnego urządzenia."
+        "title": "Urządzenia i dostęp",
+        "text": "Skonfigurowałem automatyczną rejestrację przez GPO. Porównałem komputer Hybrid Entra joined, zarejestrowany laptop i niezarządzany host. W Intune i logach logowania sprawdziłem stan Managed, Compliant oraz wynik Conditional Access."
       },
       {
-        "title": "Zakres doświadczenia",
-        "text": "To własne środowisko laboratoryjne, które służy nauce i odtwarzaniu scenariuszy. Nie jest przedstawiane jako komercyjne wdrożenie dla klienta."
+        "title": "Diagnoza synchronizacji",
+        "text": "Przy problemie z instalacją Entra Connect sprawdziłem źródło czasu i pozostałości poprzedniej instalacji. Po korekcie synchronizacji czasu i ponownej instalacji potwierdziłem udane operacje Import, Sync i Export. Przebieg zapisałem w repozytorium."
       }
     ],
     "stack": [
       "Active Directory",
-      "GPO",
+      "GPO / RSAT",
       "Entra ID",
       "Intune",
-      "Conditional Access",
-      "OpenVPN"
+      "Conditional Access"
     ],
-    "links": [],
-    "images": [],
+    "links": [
+      {
+        "label": "Konfiguracja i synchronizacja",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/20-hybrid-identity/ad-connect-sync.md"
+      },
+      {
+        "label": "Testy dostępu",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/30-security/conditional-access-compliant-device/conditional-access-compliant-device.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/entra-sync.png",
+        "alt": "Entra Connect: operacje synchronizacji i eksportu ze statusem success; nazwy połączeń ukryte.",
+        "caption": "Entra Connect: operacje synchronizacji i eksportu ze statusem success; nazwy połączeń ukryte.",
+        "width": 897,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/intune-device.png",
+        "alt": "Szczegóły urządzenia: Compliant Yes, Managed Yes i Hybrid Azure AD joined; identyfikator urządzenia ukryty.",
+        "caption": "Szczegóły urządzenia: Compliant Yes, Managed Yes i Hybrid Azure AD joined; identyfikator urządzenia ukryty.",
+        "width": 750,
+        "height": 300
+      },
+      {
+        "src": "/images/projects/admin/conditional-access.png",
+        "alt": "Test niezarządzanego komputera: MFA zakończone powodzeniem, zasada wymagająca zgodnego urządzenia ze statusem Failure.",
+        "caption": "Test niezarządzanego komputera: MFA zakończone powodzeniem, zasada wymagająca zgodnego urządzenia ze statusem Failure.",
+        "width": 750,
+        "height": 350
+      }
+    ],
     "visual": "hybrid",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład z home labu",
-      "title": "Zgodność urządzenia a dostęp do usługi",
-      "steps": [
-        {
-          "title": "Rejestracja urządzenia",
-          "text": "Sprawdzam Hybrid Join i automatyczną rejestrację w Intune przez GPO."
-        },
-        {
-          "title": "Warunki dostępu",
-          "text": "Konfiguruję zasadę Conditional Access wymagającą MFA i zgodnego urządzenia."
-        },
-        {
-          "title": "Porównanie wyniku",
-          "text": "W laboratorium zgodne urządzenie uzyskuje dostęp, a komputer niespełniający warunku jest blokowany."
-        }
-      ],
-      "note": "Własne środowisko laboratoryjne. Administrację wykonuję ze stacji administracyjnej."
-    }
+    "result": "Synchronizacja kont zakończona powodzeniem. W testowanej polityce zgodne urządzenie uzyskało dostęp, a niezarządzany komputer został zablokowany mimo poprawnego MFA.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "infrastructure",
-    "name": "Infrastruktura własnych projektów",
-    "subtitle": "Serwery, dostęp i publikacja",
-    "status": "Środowisko projektowe",
+    "name": "Linux i dostęp przez VPN",
+    "subtitle": "Ubuntu, usługi systemowe i połączenie z laboratorium",
+    "status": "Laboratorium i własne projekty",
     "statusType": "practice",
     "categories": [
       "admin"
     ],
-    "summary": "Utrzymuję środowisko do rozwoju i uruchamiania własnych projektów. Łączę pracę na serwerach Linux z konfiguracją dostępu i publikowaniem aplikacji.",
+    "summary": "Skonfigurowałem OpenVPN na Ubuntu, certyfikaty serwera i klienta oraz routing do sieci laboratorium. Sprawdzałem usługę przez systemd, logi połączenia i komunikację z kontrolerem domeny.",
     "roles": [
-      "Pracuję z instancjami AWS EC2 i zdalnym dostępem SSH.",
-      "Korzystam z Docker oraz serwerów WWW przy uruchamianiu projektów.",
-      "Sprawdzam usługi, logi i połączenia podczas diagnozowania problemów."
+      "Konfiguracja serwera OpenVPN, certyfikatów, przekierowania portu oraz routingu i NAT."
     ],
     "details": [
       {
-        "title": "Praktyczny zakres",
-        "text": "Ubuntu, AWS EC2, SSH i VS Code Remote, praca z Docker, domenami i HTTPS. Serwery pełnią różne role: rozwój, aplikacje oraz przetwarzanie nagrań."
+        "title": "Konfiguracja VPN",
+        "text": "OpenVPN i Easy-RSA na Ubuntu: własne CA, certyfikaty serwera i klienta oraz profil połączenia. Włączyłem przekazywanie pakietów, trasę do sieci laboratorium i regułę NAT. Sprawdziłem stan usługi oraz zakończenie inicjalizacji."
       },
       {
-        "title": "Eksploatacja",
-        "text": "Uwzględniam dostęp do środowiska, kopie danych i koszty zasobów. Nowe elementy wdrażam etapami i sprawdzam ich zachowanie."
+        "title": "Serwery własnych projektów",
+        "text": "Poza laboratorium utrzymuję aplikacje na Ubuntu w AWS EC2. Korzystam z SSH, Dockera oraz nginx i Caddy; pracuję z domenami, HTTPS, logami i kopiami danych. To środowiska moich projektów, w tym APPLI i tego portfolio."
       }
     ],
     "stack": [
-      "Ubuntu",
-      "AWS EC2",
-      "SSH",
-      "Docker",
-      "Caddy / nginx",
-      "GitHub"
+      "Ubuntu / systemd",
+      "OpenVPN / Easy-RSA",
+      "Routing / NAT",
+      "AWS / SSH",
+      "Docker"
     ],
-    "links": [],
-    "images": [],
+    "links": [
+      {
+        "label": "Konfiguracja OpenVPN",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/10-openvpn-server-setup/openvpn-setup.md"
+      },
+      {
+        "label": "Test dostępu do sieci",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/30-network-access/network-access.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/vpn-service.png",
+        "alt": "OpenVPN na Ubuntu: usługa active (running) oraz Initialization Sequence Completed; nazwa konta ukryta.",
+        "caption": "OpenVPN na Ubuntu: usługa active (running) oraz Initialization Sequence Completed; nazwa konta ukryta.",
+        "width": 1265,
+        "height": 405
+      },
+      {
+        "src": "/images/projects/admin/vpn-client.png",
+        "alt": "OpenVPN Connect: Securely Connected; nazwa profilu i adresy połączenia ukryte.",
+        "caption": "OpenVPN Connect: Securely Connected; nazwa profilu i adresy połączenia ukryte.",
+        "width": 597,
+        "height": 943
+      },
+      {
+        "src": "/images/projects/admin/vpn-ping.png",
+        "alt": "Test połączenia przez VPN z kontrolerem domeny w laboratorium: cztery odpowiedzi, zero utraconych pakietów; nazwa konta ukryta.",
+        "caption": "Test połączenia przez VPN z kontrolerem domeny w laboratorium: cztery odpowiedzi, zero utraconych pakietów; nazwa konta ukryta.",
+        "width": 1060,
+        "height": 510
+      }
+    ],
     "visual": "infrastructure",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład publikacji strony",
-      "title": "Własny projekt pod adresem HTTPS",
-      "steps": [
-        {
-          "title": "Przygotowanie plików",
-          "text": "Organizuję wersję strony do publikacji i pracę na serwerze Ubuntu przez SSH."
-        },
-        {
-          "title": "Domena i serwer WWW",
-          "text": "Łączę poddomenę z serwerem oraz konfigurację Caddy lub nginx z plikami strony."
-        },
-        {
-          "title": "Sprawdzenie działania",
-          "text": "Otwieram stronę przez HTTPS, sprawdzam odnośniki, obrazy i logi przy diagnozowaniu problemów."
-        }
-      ],
-      "note": "Tak łączę pracę nad własnymi aplikacjami z utrzymaniem ich środowiska."
-    }
+    "result": "Klient zestawił tunel VPN, a test połączenia z kontrolerem domeny zakończył się bez utraty pakietów.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "adminlab",
-    "name": "Learning Admin Lab",
-    "subtitle": "Dokumentacja i praktyka systemowa",
-    "status": "Laboratorium i notatki",
+    "name": "Windows Server — diagnoza DHCP",
+    "subtitle": "Od braku adresu IP do działającej domeny",
+    "status": "Przypadek z laboratorium",
     "statusType": "lab",
     "categories": [
       "admin"
     ],
-    "summary": "Prowadzę repozytorium praktyki z Linux, Windows i podstaw bezpieczeństwa. Zapisuję polecenia, obserwacje i wnioski z ćwiczeń.",
+    "summary": "Po instalacji kontrolera domeny klienci przestali otrzymywać adresy z DHCP. Windows korzystał z APIPA, a logowanie do domeny nie działało. Sprawdziłem konfigurację klientów, DNS i stan DHCP na serwerze.",
     "roles": [
-      "Ćwiczę pracę z użytkownikami, uprawnieniami, usługami i procesami.",
-      "Analizuję logi i połączenia sieciowe w środowisku laboratoryjnym.",
-      "Porządkuję dokumentację i zmiany z użyciem Git."
+      "Diagnoza braku dzierżawy DHCP, przywrócenie działania IPv4 i sprawdzenie klientów Windows oraz Ubuntu."
     ],
     "details": [
       {
-        "title": "Forma pracy",
-        "text": "Maszyny wirtualne Ubuntu, Kali Linux i Windows, uporządkowane notatki oraz artefakty ćwiczeń. Repozytorium pokazuje przebieg nauki i obszary, które rozwijam."
+        "title": "Objawy",
+        "text": "Adres APIPA na Windows, brak prawidłowego adresu na Ubuntu i niedostępna domena. Zebrałem wyniki ipconfig, błędy rozwiązywania nazw i komunikaty logowania."
+      },
+      {
+        "title": "Naprawa i weryfikacja",
+        "text": "W konsoli DHCP stwierdziłem nieaktywny IPv4. Po jego aktywacji i restarcie usługi sprawdziłem przydział adresów, odpowiedź nslookup i logowanie klienta do domeny. Dokumentacja zawiera zrzuty przed naprawą i po niej."
       }
     ],
     "stack": [
-      "Linux",
-      "Windows",
-      "VirtualBox",
-      "Git",
-      "Logi systemowe"
+      "Windows Server",
+      "DHCP",
+      "DNS",
+      "ipconfig / nslookup"
     ],
     "links": [
       {
-        "label": "Zobacz repozytorium",
-        "url": "https://github.com/DenysNew/learning-admin"
+        "label": "Opis problemu i rozwiązania",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/windows/active-directory/dhcp-not-working-after-dc-promotion.md"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/projects/admin/dhcp-before.png",
+        "alt": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x; adres IPv6 ukryty.",
+        "caption": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x; adres IPv6 ukryty.",
+        "width": 1114,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/dhcp-after.png",
+        "alt": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local; adres IPv6 ukryty.",
+        "caption": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local; adres IPv6 ukryty.",
+        "width": 1115,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/dns-result.png",
+        "alt": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium; adres IPv6 ukryty.",
+        "caption": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium; adres IPv6 ukryty.",
+        "width": 961,
+        "height": 218
+      }
+    ],
     "visual": "adminlab",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład pracy z dokumentacją",
-      "title": "Od polecenia do notatki w Git",
-      "steps": [
-        {
-          "title": "Ćwiczenie na maszynie wirtualnej",
-          "text": "Pracuję z użytkownikami, uprawnieniami lub usługami w Linux i Windows."
-        },
-        {
-          "title": "Polecenie i obserwacja",
-          "text": "Zapisuję wykonane polecenie, wynik i wniosek z analizy logów lub konfiguracji."
-        },
-        {
-          "title": "Zmiana w repozytorium",
-          "text": "Porządkuję notatkę w VS Code i zapisuję jej historię z użyciem Git oraz GitHub."
-        }
-      ],
-      "note": "Repozytorium jest rozwijanym zapisem nauki i ćwiczeń."
-    }
+    "result": "Po aktywacji IPv4 w konsoli DHCP i restarcie usługi klienci otrzymali adresy. Potwierdziłem odpowiedź DNS dla domeny oraz poprawne logowanie.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "securitylab",

@@ -118,6 +118,7 @@
 .photo-stack-mixed .stack-photo:nth-child(1){left:29px;top:9px;transform:rotate(-12deg)}
 .photo-stack-mixed .stack-photo:nth-child(2){left:77px;top:15px;transform:rotate(7deg)}
 .photo-stack-mixed .stack-photo:nth-child(3){left:119px;top:9px;transform:rotate(13deg)}
+.photo-stack-mixed .stack-photo:nth-child(3):not(.portrait-photo){left:51px;top:76px;transform:rotate(-5deg)}
 .photo-stack-mixed .stack-photo:nth-child(4){left:51px;top:85px;width:130px;transform:rotate(-5deg)}
 .photo-stack-single .stack-photo{left:30px;top:22px;width:160px;transform:rotate(-6deg)}
 @media(max-width:1000px){.photo-stack{--pile-scale:1.2;width:260px;height:190px}}

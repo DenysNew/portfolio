@@ -38,7 +38,7 @@
       "number": "02",
       "eyebrow": "Środowisko projektowe i home lab",
       "title": "Środowisko, które potrafię uruchomić i sprawdzić.",
-      "description": "Pracuję z serwerami Linux i AWS. W laboratorium łączę Active Directory z Entra ID i Intune, konfiguruję dostęp i sprawdzam zachowanie urządzeń.",
+      "description": "Własne laboratorium Microsoft, diagnoza DHCP i dostęp przez OpenVPN. Konkretne konfiguracje i wyniki udokumentowane w repozytorium.",
       "tags": [
         "Linux / AWS",
         "AD / Entra ID",
@@ -47,9 +47,8 @@
       ],
       "order": [
         "hybrid",
-        "infrastructure",
         "adminlab",
-        "agents"
+        "infrastructure"
       ],
       "context": "Serwery własnych projektów i laboratorium Microsoft: uruchamianie usług, zarządzanie urządzeniami i dostępem.",
       "cvId": "admin"
