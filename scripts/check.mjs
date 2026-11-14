@@ -7,6 +7,7 @@ const ids=projects.map(p=>p.id);
 assert.equal(ids.length,new Set(ids).size,'Project ids must be unique');
 for(const track of profile.tracks){
   assert(track.order.length>0);
+  assert(profile.cvs.some(cv=>cv.id===track.cvId),`Missing CV mapping: ${track.id}`);
   for(const id of track.order)assert(ids.includes(id),`Unknown project ${id}`);
 }
 for(const p of projects){
@@ -25,6 +26,11 @@ for(const match of html.matchAll(/(?:href|src|data-image)="(\/[^"#?]*)[^\"]*"/g)
 for(const match of html.matchAll(/href="#([^"]+)"/g))assert(htmlIds.includes(match[1]),`Broken anchor ${match[1]}`);
 for(const match of html.matchAll(/<img\b[^>]+>/g))assert(/alt="[^"]+"/.test(match[0]),'Image missing useful alt text');
 assert(!/DenysOS|TODO|Lorem ipsum/.test(html),'Unfinished or retired content in public page');
-const pdf=await readFile('dist'+profile.cv.url);
-assert.equal(pdf.subarray(0,5).toString(),'%PDF-','Download must be a PDF');
-console.log(`PASS: ${projects.length} projects, 3 tracks, unique anchors, image metadata and local assets including CV.`);
+assert(profile.cvs.length>0,'At least one CV must be available');
+assert.equal(profile.cvs.length,new Set(profile.cvs.map(cv=>cv.id)).size,'CV ids must be unique');
+for(const cv of profile.cvs){
+ assert(cv.label && cv.description && cv.url.startsWith('/cv/'),'Incomplete CV option');
+ const pdf=await readFile('dist'+cv.url);
+ assert.equal(pdf.subarray(0,5).toString(),'%PDF-',`Invalid PDF: ${cv.id}`);
+}
+console.log(`PASS: ${projects.length} projects, 3 tracks, unique anchors, image metadata and local assets including ${profile.cvs.length} CV PDFs.`);

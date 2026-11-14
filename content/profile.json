@@ -8,10 +8,6 @@
   "intro": "Na co dzień rozwijam aplikacje z AI, organizuję pracę agentów i utrzymuję własne środowisko IT.",
   "updated": "2026-11-14",
   "languages": "Polski — zaawansowany · Angielski — podstawowy, w nauce · Ukraiński i rosyjski — ojczyste",
-  "cv": {
-    "label": "CV — AI i automatyzacja",
-    "url": "/cv/Denys_Nevskyi_CV_AI_Automation_PL.pdf"
-  },
   "tracks": [
     {
       "id": "ai",
@@ -29,10 +25,12 @@
       "order": [
         "appli",
         "agents",
+        "workspace",
         "learning",
         "audio"
       ],
-      "context": "Działające aplikacje, współpraca agentów i przetwarzanie nagrań — projekty, z których korzystam na co dzień."
+      "context": "Działające aplikacje, współpraca agentów i przetwarzanie nagrań — projekty, z których korzystam na co dzień.",
+      "cvId": "ai"
     },
     {
       "id": "admin",
@@ -53,7 +51,8 @@
         "adminlab",
         "agents"
       ],
-      "context": "Serwery własnych projektów i laboratorium Microsoft: uruchamianie usług, zarządzanie urządzeniami i dostępem."
+      "context": "Serwery własnych projektów i laboratorium Microsoft: uruchamianie usług, zarządzanie urządzeniami i dostępem.",
+      "cvId": "admin"
     },
     {
       "id": "security",
@@ -73,7 +72,34 @@
         "hybrid",
         "appli"
       ],
-      "context": "Kierunek w rozwoju: laboratoria TryHackMe, kontrola dostępu i nauka do ISC2 CC."
+      "context": "Kierunek w rozwoju: laboratoria TryHackMe, kontrola dostępu i nauka do ISC2 CC.",
+      "cvId": "soc"
+    }
+  ],
+  "cvs": [
+    {
+      "id": "ai",
+      "label": "AI i automatyzacja",
+      "description": "APPLI, agenci AI i procesy automatyzacji.",
+      "url": "/cv/Denys_Nevskyi_CV_AI_Automation_PL.pdf"
+    },
+    {
+      "id": "admin",
+      "label": "Administracja IT",
+      "description": "Windows, Linux i Microsoft 365.",
+      "url": "/cv/Denys_Nevskyi_System_Administrator_CV_PL.pdf"
+    },
+    {
+      "id": "support",
+      "label": "IT Support",
+      "description": "Wsparcie użytkowników i rozwiązywanie problemów.",
+      "url": "/cv/Denys_Nevskyi_IT_Support_CV_PL.pdf"
+    },
+    {
+      "id": "soc",
+      "label": "SOC / bezpieczeństwo",
+      "description": "Analiza logów i laboratoria bezpieczeństwa.",
+      "url": "/cv/Denys_Nevskyi_SOC_Analyst_CV_PL.pdf"
     }
   ]
 }

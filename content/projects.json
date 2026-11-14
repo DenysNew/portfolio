@@ -3,30 +3,29 @@
     "id": "appli",
     "name": "APPLI",
     "subtitle": "Osobisty asystent AI",
-    "status": "Wdrożone MVP",
+    "compactHeading": true,
+    "status": "Działający prototyp",
     "statusType": "live",
     "categories": [
       "ai",
       "security"
     ],
-    "summary": "Aplikacja do planowania i finansów osobistych. Rozwijam ją od reguł działania i scenariuszy użytkownika po sprawdzanie gotowych funkcji.",
+    "summary": "APPLI łączy planowanie dnia i finanse osobiste z asystentem AI. Dzięki integracji z OpenAI API asystent analizuje dane z aplikacji i proponuje działania.",
     "roles": [
-      "Określam wymagania i organizuję rozwój z agentami programistycznymi.",
-      "Sprawdzam odpowiedzi AI, potwierdzanie operacji i uprawnienia użytkowników.",
-      "Analizuję błędy i opóźnienia; porównuję modele pod kątem jakości, czasu i kosztów."
+      "Rozwijam projekt na co dzień: określam funkcje i zasady działania, organizuję pracę Claude Code i Codex oraz oceniam efekty w aplikacji."
     ],
     "details": [
       {
-        "title": "Co obejmuje projekt",
-        "text": "Planowanie zadań, harmonogram i finanse osobiste połączone z asystentem AI. Rozwój obejmuje reguły danych, interakcje użytkownika i kontrolowane wykonywanie proponowanych operacji."
+        "title": "Dane i kontrola operacji",
+        "text": "Zadania i finanse są zapisywane w PostgreSQL. Przed zmianą danych asystent prosi o potwierdzenie; sprawdzam wynik operacji i dostęp różnych kont do ich danych."
       },
       {
-        "title": "Moja codzienna praca",
-        "text": "Przekładam potrzeby na scenariusze i kryteria akceptacji, zlecam zmiany agentom, sprawdzam działanie aplikacji i kieruję poprawkami. Kod powstaje ze wsparciem Claude Code i Codex."
+        "title": "Wdrożenie i utrzymanie",
+        "text": "Utrzymuję aplikację w kontenerach Docker na AWS, pod własną domeną z HTTPS. Pracuję z wersjami w Git i sprawdzam zmiany przed publikacją."
       },
       {
-        "title": "Dostęp i niezawodność",
-        "text": "Pracowałem nad zasadami dostępu do aplikacji, potwierdzaniem działań AI oraz diagnozowaniem problemów z walidacją i czasem odpowiedzi. Aplikacja pozostaje rozwijanym MVP."
+        "title": "Diagnostyka i jakość AI",
+        "text": "Analizuję logi, błędy walidacji i opóźnienia odpowiedzi. Porównuję modele pod kątem jakości, czasu i kosztów; wyniki wykorzystuję przy kolejnych poprawkach."
       }
     ],
     "stack": [
@@ -44,124 +43,230 @@
     ],
     "images": [
       {
-        "src": "/images/projects/appli-planning-demo.jpg",
-        "alt": "APPLI — planowanie tygodnia i analiza dnia w trybie demonstracyjnym",
-        "caption": "APPLI: planowanie i analiza dnia. Publiczne demo z przykładowymi danymi, 12.11.2026."
+        "src": "/images/projects/appli-finance-mobile.png",
+        "label": "Analiza finansów",
+        "alt": "APPLI — mobilny widok finansów z podsumowaniem miesiąca i analizą AI po polsku",
+        "caption": "APPLI — podsumowanie miesiąca i analiza finansów. Widok mobilny.",
+        "width": 728,
+        "height": 1536
       },
       {
-        "src": "/images/projects/appli-finance-demo.jpg",
-        "alt": "APPLI — podsumowanie finansów i analiza w trybie demonstracyjnym",
-        "caption": "APPLI: finanse. Publiczne demo z przykładowymi danymi, 12.11.2026."
+        "src": "/images/projects/appli-budget-mobile.png",
+        "label": "Budżet",
+        "alt": "APPLI — mobilny widok budżetu z kategoriami wydatków, limitami i pozostałymi kwotami po polsku",
+        "caption": "APPLI — kategorie wydatków i wykorzystanie budżetu. Widok mobilny.",
+        "width": 728,
+        "height": 1536
+      },
+      {
+        "src": "/images/projects/appli-finance-dark-mobile.png",
+        "label": "Ciemny motyw",
+        "alt": "APPLI — mobilny widok finansów w ciemnym motywie, po polsku",
+        "caption": "APPLI — finanse w ciemnym motywie. Widok mobilny.",
+        "width": 728,
+        "height": 1536
+      },
+      {
+        "src": "/images/projects/appli-finance-desktop.png",
+        "label": "Widok desktopowy",
+        "alt": "APPLI — desktopowy widok finansów z analizą AI po polsku",
+        "caption": "APPLI — finanse i analiza AI. Widok desktopowy.",
+        "width": 1902,
+        "height": 823
       }
     ],
     "visual": "appli",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "linkNote": "Dostępny tryb demo"
   },
   {
     "id": "agents",
-    "name": "Środowisko agentów AI",
-    "subtitle": "Claude Code i Codex w jednym procesie",
+    "name": "Współpraca agentów AI",
+    "subtitle": "Automatyzacja zadań i review na serwerze",
     "status": "W codziennej pracy",
     "statusType": "practice",
     "categories": [
       "ai",
       "admin"
     ],
-    "summary": "Gdy przybyło projektów i przeglądów kodu, uporządkowałem sposób pracy agentów: zadania, kontekst, oddzielne zmiany i weryfikację wyników.",
+    "summary": "Gdy przybyło zadań i przeglądów kodu, zorganizowałem pracę Claude Code i Codex w jednym procesie na serwerze. Zadania przechodzą przez wykonanie, sprawdzenie i poprawki, także gdy mój komputer jest wyłączony.",
     "roles": [
-      "Dzielę prace na zadania, gałęzie Git i pull requesty.",
-      "Organizuję przekazywanie kontekstu i sprawdzanie zmian przez drugiego agenta.",
-      "Podejmuję decyzje o przyjęciu zmian i dalszych krokach."
+      "Ustalam zakres i kryteria zadań, organizuję kolejkę oraz podejmuję decyzję o przyjęciu zmian. Wyniki i pull requesty mogę sprawdzić także z telefonu."
     ],
     "details": [
       {
-        "title": "Dlaczego powstało",
-        "text": "Równoległa praca nad kilkoma projektami wymagała powtarzalnego sposobu przekazywania stanu prac i weryfikacji wyników. Dostosowałem środowisko do własnego sposobu działania."
+        "title": "Cykl zadania",
+        "text": "Każde zadanie ma osobny worktree i gałąź Git. Jeden agent przygotowuje zmianę, drugi ocenia konkretną wersję kodu. Pomiędzy nimi wykonywane są ustalone sprawdzenia, a uwagi wracają do autora. Stan zadania, raporty i historia pozostają zapisane."
       },
       {
-        "title": "Jak pracuję",
-        "text": "Claude Code i Codex pracują na Ubuntu z GitHub, oddzielnymi katalogami roboczymi i dokumentacją HANDOFF. Dokumentacja projektu oraz wspólny kontekst na Google Drive pomagają kontynuować zadania między sesjami."
+        "title": "Kolejka i zależności",
+        "text": "Kolejka wykonuje zadania po kolei. Niezależne mogą być realizowane, gdy wcześniejsze zmiany czekają na moją decyzję. Zadania zależne czekają na scalenie wymaganych zmian z główną gałęzią. Dzięki temu mogę przygotować kilka zadań z wyprzedzeniem."
       },
       {
-        "title": "Kontrola procesu",
-        "text": "Zakres zadania, przyjęcie zmian i publikacja pozostają pod moją kontrolą. Stopień automatyzacji poszczególnych etapów jest rozwijany i weryfikowany osobno."
+        "title": "Serwer i kontrola kosztów",
+        "text": "Ubuntu i tmux utrzymują sesje po rozłączeniu komputera. Skrót Start uruchamia serwer, czeka na SSH i otwiera VS Code. Stop wymaga potwierdzenia. Automatyczne wyłączanie po bezczynności uwzględnia aktywne zadania i ogranicza czas pracy serwera."
       }
     ],
     "stack": [
       "Claude Code",
       "Codex",
+      "Kolejka zadań",
       "Git / worktree",
-      "Ubuntu",
-      "SSH / tmux",
-      "Google Drive"
+      "Ubuntu / tmux",
+      "VS Code / SSH",
+      "PowerShell"
     ],
     "links": [],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/projects/prepared/agents-task-launch.png",
+        "alt": "Uruchomienie zadania dla Codex z kryteriami akceptacji i poleceniami sprawdzającymi",
+        "width": 1622,
+        "height": 370,
+        "caption": "Zadanie uruchomione na serwerze."
+      },
+      {
+        "src": "/images/projects/prepared/agents-task-status.png",
+        "alt": "Stan zadania po dwóch rundach review, ze zgodnymi SHA zmiany i sprawdzonej wersji; dane wewnętrzne ukryte",
+        "width": 1200,
+        "height": 500,
+        "caption": "Stan zadania po dwóch rundach review."
+      },
+      {
+        "src": "/images/projects/prepared/agents-pull-request.png",
+        "alt": "Pull request w GitHub z polskim opisem problemu i zadania naprawy niestabilnego testu",
+        "width": 1200,
+        "height": 655,
+        "caption": "Opis zadania w pull requeście."
+      },
+      {
+        "src": "/images/projects/prepared/agents-review-final.png",
+        "alt": "Końcowe statyczne review Claude po poprawkach; oryginalny raport w języku rosyjskim",
+        "width": 1210,
+        "height": 734,
+        "caption": "Końcowe statyczne review Claude."
+      },
+      {
+        "src": "/images/projects/agents-server-start.png",
+        "alt": "Skrypt uruchamiania serwera: sprawdzenie stanu, oczekiwanie na SSH i otwarcie VS Code",
+        "caption": "Uruchomienie środowiska pracy.",
+        "width": 1131,
+        "height": 592
+      },
+      {
+        "src": "/images/projects/agents-server-stop.png",
+        "alt": "Potwierdzenie zatrzymania serwera z ostrzeżeniem o przerwaniu pracy Claude lub Codex",
+        "caption": "Kontrolowane zatrzymanie serwera.",
+        "width": 1750,
+        "height": 568
+      }
+    ],
     "visual": "agents",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład współpracy agentów",
-      "title": "Od zadania do przyjętej zmiany",
-      "steps": [
-        {
-          "title": "Zadanie i wspólny kontekst",
-          "text": "Opisuję oczekiwane działanie. Agent korzysta z dokumentacji projektu i materiałów na Google Drive."
-        },
-        {
-          "title": "Zmiana w osobnym worktree",
-          "text": "Claude Code lub Codex wykonuje wydzielone zadanie na gałęzi Git, oddzielnie od pozostałych prac."
-        },
-        {
-          "title": "Przegląd przez drugiego agenta",
-          "text": "Drugi agent sprawdza zmianę. Uwagi wracają do autora jako poprawki."
-        },
-        {
-          "title": "Moja weryfikacja i decyzja",
-          "text": "Sprawdzam rezultat w aplikacji i decyduję o przyjęciu zmiany oraz publikacji."
-        }
-      ],
-      "note": "Kolejna sesja zaczyna od HANDOFF: stanu prac, wyników sprawdzenia i następnego kroku."
-    }
+    "compactHeading": true,
+    "wideHeading": true
   },
   {
-    "id": "learning",
-    "name": "Narzędzia do nauki",
-    "subtitle": "ISC2 CC, English Practice i materiały audio",
-    "status": "Rozwijane projekty",
+    "id": "workspace",
+    "name": "Wspólne środowisko pracy",
+    "subtitle": "Projekty i kontekst dostępne z różnych urządzeń",
+    "compactHeading": true,
+    "wideHeading": true,
+    "status": "W codziennej pracy",
     "statusType": "practice",
     "categories": [
       "ai"
     ],
-    "summary": "Tworzę narzędzia do własnej nauki: stronę z pytaniami i wyjaśnieniami oraz materiały, z których korzystam w formie tekstu, audio i wideo.",
+    "summary": "Pracuję nad kodem, nagraniami i materiałami edukacyjnymi w środowisku łączącym serwer, GitHub, Google Drive i czaty AI. Pliki, instrukcje i stan projektów pozostają dostępne, gdy zmieniam urządzenie lub rozpoczynam nową rozmowę.",
     "roles": [
-      "Rozwijam scenariusze ćwiczeń i sposób prezentacji wyjaśnień.",
-      "Przygotowuję treść i nagrania z pomocą AI oraz narzędzi syntezy mowy.",
-      "Organizuję pliki na Google Drive i pracuję nad ich publikacją."
+      "Konfiguruję połączenia, wspólne instrukcje i sposób zapisu wyników, aby kolejne zadania mogły korzystać z przygotowanego środowiska."
     ],
     "details": [
       {
-        "title": "Aplikacje edukacyjne",
-        "text": "ISC2 CC Practice i English Practice łączą pytania, wyjaśnienia i słownictwo. Są częścią mojego własnego procesu uczenia się, a nie potwierdzeniem posiadania certyfikatu."
+        "title": "Miejsce dla kodu i materiałów",
+        "text": "GitHub przechowuje kod, konfigurację i historię zmian. Google Drive jest stałym miejscem dla nagrań, dokumentów i wyników. Serwer wykonuje zadania i korzysta z roboczych kopii plików. Opisany wyżej proces pracy agentów jest częścią tego środowiska."
       },
       {
-        "title": "Materiały audio i wideo",
-        "text": "Wykorzystuję AI do przygotowania treści, ElevenLabs i inne narzędzia TTS do nagrań oraz narzędzia obróbki audio do dopasowania materiałów do słuchania. Wybrane materiały publikuję na YouTube."
+        "title": "Kontekst gotowy do odczytania",
+        "text": "Na Drive utrzymuję opis środowiska, indeks projektów, zadania na później i raporty. W nowym czacie mogę wskazać odpowiedni plik, z którego podłączone narzędzie odczyta kontekst. Polecenia handoff pobierają ustalenia na serwer i zapisują aktualizacje z powrotem na Drive."
       },
       {
-        "title": "Wspólne materiały",
-        "text": "Google Drive służy do przechowywania plików źródłowych i wyników oraz do pracy z materiałami przez podłączone narzędzia i agentów. Poszczególne etapy mają różny stopień automatyzacji."
+        "title": "Przykład: praca z nagraniem",
+        "text": "Wskazuję nagranie w folderze projektu na Drive. Serwer pobiera kopię i wykonuje transkrypcję Whisper na GPU. Tekst, znaczniki czasu i raport wracają na Drive, gdzie mogę odczytać je w kolejnym czacie. Zmiana urządzenia nie wymaga ponownego przesyłania materiałów. Wspólne reguły i szablony wykorzystuję także w kolejnych projektach."
+      }
+    ],
+    "stack": [
+      "Ubuntu / AWS",
+      "GitHub",
+      "Google Drive",
+      "ChatGPT",
+      "rclone",
+      "handoff"
+    ],
+    "links": [],
+    "images": [
+      {
+        "src": "/images/projects/prepared/workspace-drive-projects.png",
+        "alt": "Folder Projects na Google Drive: materiały edukacyjne, portfolio i Audio Studio; dawna nazwa jednego projektu ukryta",
+        "width": 1420,
+        "height": 585,
+        "caption": "Projekty we wspólnej przestrzeni plików."
+      },
+      {
+        "src": "/images/projects/prepared/workspace-drive-context.png",
+        "alt": "Folder AI-Context na Google Drive z plikiem workspace-context.md, zadaniem, reviews.md i raportami wyników",
+        "width": 1420,
+        "height": 655,
+        "caption": "Kontekst, zadania i raporty na Google Drive."
+      },
+      {
+        "src": "/images/projects/prepared/workspace-drive-materials.png",
+        "alt": "Struktura projektu edukacyjnego na Google Drive: Voice, English_Audio, archiwum, narzędzia, źródła i moduły",
+        "width": 1414,
+        "height": 670,
+        "caption": "Materiały źródłowe, narzędzia i nagrania."
+      }
+    ],
+    "visual": "workspace",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "learning",
+    "name": "Narzędzia do nauki",
+    "subtitle": "ISC2 CC, English Practice, audio i YouTube",
+    "status": "Działające narzędzia",
+    "statusType": "practice",
+    "categories": [
+      "ai"
+    ],
+    "summary": "Rozwijam własny zestaw narzędzi do nauki cyberbezpieczeństwa i angielskiego: CC Practice, English Practice, zajęcia z AI oraz materiały audio i wideo. Korzystam z nich przy przygotowaniu do ISC2 CC.",
+    "roles": [
+      "Projektuję ćwiczenia i instrukcje do pracy z Claude i ChatGPT. Porządkuję bazę wiedzy na Google Drive, przygotowuję treści z pomocą AI i przekształcam je w materiały do codziennej nauki."
+    ],
+    "details": [
+      {
+        "title": "Ćwiczenia i baza pytań",
+        "text": "CC Practice i English Practice pozwalają ćwiczyć pytania, sprawdzać odpowiedzi i poznawać słownictwo. Na Google Drive utrzymuję osobną bazę wiedzy oraz autorskie zestawy pytań z kluczami i wyjaśnieniami, uporządkowane według pięciu domen. Są to materiały treningowe do ISC2 CC."
+      },
+      {
+        "title": "Zajęcia z AI",
+        "text": "Przygotowane materiały wykorzystuję w Claude i ChatGPT. Instrukcje rozdzielają omawianie tematu, naukę krok po kroku, test i angielski. Przed sesją wskazuję źródła i zestaw pytań; dla zajęć głosowych przygotowuję kontekst w tym samym czacie. Wyniki zapisuję osobno w folderze Sessions."
+      },
+      {
+        "title": "Od tekstu do audio i wideo",
+        "text": "Treści opracowane z pomocą AI zamieniam w nagrania przez ElevenLabs i inne narzędzia TTS. Mam też skrypt Python z edge-tts i FFmpeg: dobiera głos do języka i dodaje pauzy na odpowiedź. Źródła oraz gotowe MP3 przechowuję na Drive, a wybrane materiały wideo publikuję na kanale DIGITAL-WORKSHOP-LAB."
       }
     ],
     "stack": [
       "HTML / CSS / JavaScript",
-      "ElevenLabs",
-      "FFmpeg",
+      "Claude / ChatGPT",
       "Google Drive",
-      "AI"
+      "ElevenLabs / TTS",
+      "Python / FFmpeg"
     ],
     "links": [
       {
-        "label": "Otwórz stronę z ćwiczeniami",
+        "label": "CC Practice",
         "url": "https://cc.appli-lab.pl/"
       },
       {
@@ -169,75 +274,106 @@
         "url": "https://cc.appli-lab.pl/english.html"
       },
       {
-        "label": "Przykład materiału na YouTube",
-        "url": "https://www.youtube.com/watch?v=GprTfIT8-1c"
+        "label": "Kanał YouTube",
+        "url": "https://www.youtube.com/@DigitalWorkshopLab"
       }
     ],
     "images": [
       {
         "src": "/images/projects/cc-practice.jpg",
         "alt": "Strona główna autorskiego trenażera CC Practice z modułami ćwiczeń",
-        "caption": "CC Practice: działająca strona z ćwiczeniami. Interfejs rosyjski, pytania po angielsku; 12.11.2026."
+        "caption": "CC Practice: działająca strona z ćwiczeniami. Interfejs rosyjski, pytania po angielsku; 12.11.2026.",
+        "width": 1348,
+        "height": 926
+      },
+      {
+        "src": "/images/projects/prepared/learning-english-practice.png",
+        "alt": "English Practice: pytanie po angielsku, wybór odpowiedzi i informacja zwrotna w rosyjskim interfejsie",
+        "caption": "Ćwiczenie w English Practice; autentyczny zrzut użytkownika, bez zmiany treści.",
+        "width": 1278,
+        "height": 825
+      },
+      {
+        "src": "/images/projects/prepared/learning-youtube-channel.png",
+        "alt": "Kanał DIGITAL-WORKSHOP-LAB na YouTube z opublikowanymi materiałami ISC2 CC",
+        "caption": "Kanał YouTube z materiałami edukacyjnymi.",
+        "width": 1585,
+        "height": 756
+      },
+      {
+        "src": "/images/projects/prepared/learning-drive-voice.jpg",
+        "alt": "Baza zajęć na Google Drive: foldery Sessions, Questions, Modes, Knowledge i English",
+        "caption": "Struktura bazy do zajęć z AI, bez treści prywatnych sesji.",
+        "width": 935,
+        "height": 441
+      },
+      {
+        "src": "/images/projects/prepared/learning-drive-audio.jpg",
+        "alt": "Folder English_Audio na Google Drive z materiałami źródłowymi i gotowymi plikami MP3",
+        "caption": "Źródła i gotowe nagrania do nauki angielskiego.",
+        "width": 935,
+        "height": 397
       }
     ],
     "visual": "learning",
-    "reviewed": "2026-11-12"
+    "reviewed": "2026-11-14",
+    "compactHeading": true,
+    "wideHeading": true
   },
   {
     "id": "audio",
-    "name": "Przetwarzanie nagrań",
-    "subtitle": "Działający proces i rozwój Audio Studio",
+    "name": "Przetwarzanie nagrań z AI",
+    "subtitle": "Transkrypcja na GPU i rozwój Audio Studio",
     "status": "Proces działa · aplikacja w rozwoju",
     "statusType": "development",
     "categories": [
       "ai"
     ],
-    "summary": "Przetwarzam nagrania kazań z użyciem AI. Działający proces obejmuje transkrypcję, pracę z tekstem i zapis wyników na Google Drive; Audio Studio rozwijam jako jego interfejs.",
+    "summary": "Organizuję przetwarzanie nagrań audio i wideo: transkrypcję na serwerze z GPU, analizę tekstu z AI i zapis wyników na Google Drive. Audio Studio rozwijam jako interfejs łączący te etapy z przygotowaniem montażu.",
     "roles": [
-      "Organizuję przygotowanie nagrania, transkrypcję i przechowywanie wyników.",
-      "Pracuję z rozpoznawaniem mowy na GPU i posłownymi znacznikami czasu.",
-      "Sprawdzam kompletność plików i planuję kolejne etapy integracji."
+      "Projektuję przebieg pracy, prowadzę rozwój skryptów z agentami AI i sprawdzam wyniki. Zachowuję oryginały nagrań; propozycje zmian oceniam przed ich wykonaniem."
     ],
     "details": [
       {
-        "title": "Co już wykorzystuję",
-        "text": "Transkrypcję nagrań, tekst oraz znaczniki czasu, a także przenoszenie i kontrolę plików między serwerem a Google Drive. Proces obejmuje ręczne uruchamianie i weryfikację."
+        "title": "Tekst, czas i zapis postępu",
+        "text": "Transkrypcja daje TXT, napisy SRT i JSON z czasami poszczególnych słów. Pliki przenoszę na Google Drive i sprawdzam ich zgodność. Worker Audio Studio zapisuje gotowe części nagrania, dzięki czemu przy wznowieniu nie rozpoznaje ich ponownie."
       },
       {
-        "title": "Co rozwijam",
-        "text": "Audio Studio ma połączyć etapy pracy w aplikacji. Integracja interfejsu z przetwarzaniem na odległych serwerach, montaż i publikacja są rozwijane osobno; nie przedstawiam ich jako ukończonego automatycznego procesu."
+        "title": "Kontrola pracy i kosztów GPU",
+        "text": "Transkrypcję uruchamiam skryptem na osobnym serwerze GPU. Po odebraniu wyników wywołuję gpu-off: polecenie zatrzymuje serwer i sprawdza stan Stopped przez AWS, z rezerwową próbą wyłączenia przez SSH. Sam skrypt transkrypcji nie wyłącza serwera automatycznie."
+      },
+      {
+        "title": "Audio Studio — kolejny etap",
+        "text": "Rozwijam aplikację: dodanie pliku → transkrypcja → propozycje AI → moja akceptacja → montaż i odsłuch. Analiza tekstu jest już podłączona do OpenAI. Integracja zdalnych workerów, automatyczne przejście na CPU przy niedostępnym GPU i montaż pozostają w rozwoju. Czasy słów pomagają wskazać cięcia; ich granice wymagają sprawdzenia w nagraniu."
       }
     ],
     "stack": [
-      "Whisper",
-      "CUDA / GPU",
-      "Python",
-      "FFmpeg",
-      "rclone",
-      "Google Drive"
+      "faster-whisper",
+      "CUDA / Tesla T4",
+      "AWS EC2",
+      "Python / FFmpeg",
+      "OpenAI API",
+      "rclone / Google Drive"
     ],
     "links": [],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/projects/prepared/audio-aws-workers.png",
+        "alt": "Fragment konsoli AWS: gpu-worker i cpu-worker w stanie Stopped; identyfikatory instancji zasłonięte.",
+        "caption": "Dwa serwery robocze AWS — wycinek tabeli, identyfikatory ukryte.",
+        "width": 770,
+        "height": 105
+      }
+    ],
     "visual": "audio",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład pracy z nagraniem",
-      "title": "Nagranie → tekst ze znacznikami czasu",
-      "steps": [
-        {
-          "title": "Plik źródłowy",
-          "text": "Przygotowuję nagranie do przetwarzania i zachowuję jego oryginał."
-        },
-        {
-          "title": "Whisper na GPU",
-          "text": "Uruchamiam transkrypcję. Wyniki obejmują tekst i znaczniki czasu poszczególnych słów."
-        },
-        {
-          "title": "Kontrola i Google Drive",
-          "text": "Sprawdzam kompletność wyników, przenoszę je przez rclone i weryfikuję zgodność plików."
-        }
-      ],
-      "note": "Ten proces uruchamiam i weryfikuję ręcznie. Interfejs Audio Studio rozwijam osobno."
+    "compactHeading": true,
+    "wideHeading": true,
+    "benchmark": {
+      "label": "Przykładowy pomiar · Tesla T4",
+      "input": "43 min",
+      "output": "4 min 53 s",
+      "note": "5 min 24 s łącznie z przygotowaniem i transferem plików."
     }
   },
   {
