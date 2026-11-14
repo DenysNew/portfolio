@@ -38,17 +38,18 @@
       "number": "02",
       "eyebrow": "Środowisko projektowe i home lab",
       "title": "Środowisko, które potrafię uruchomić i sprawdzić.",
-      "description": "Własne laboratorium Microsoft, diagnoza DHCP i dostęp przez OpenVPN. Konkretne konfiguracje i wyniki udokumentowane w repozytorium.",
+      "description": "Windows i Active Directory, Microsoft 365, Linux oraz sieci. Konfiguracje, diagnoza problemów i wyniki z własnego laboratorium oraz serwerów projektowych.",
       "tags": [
+        "Windows / AD",
+        "Microsoft 365 / Intune",
         "Linux / AWS",
-        "AD / Entra ID",
-        "Intune",
-        "OpenVPN"
+        "Sieci / VPN"
       ],
       "order": [
-        "hybrid",
         "adminlab",
-        "infrastructure"
+        "hybrid",
+        "infrastructure",
+        "network"
       ],
       "context": "Serwery własnych projektów i laboratorium Microsoft: uruchamianie usług, zarządzanie urządzeniami i dostępem.",
       "cvId": "admin"

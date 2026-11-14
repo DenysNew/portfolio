@@ -377,43 +377,42 @@
   },
   {
     "id": "hybrid",
-    "name": "Active Directory i Microsoft 365",
-    "subtitle": "Użytkownicy, urządzenia i dostęp",
+    "name": "Microsoft 365, Entra ID i Intune",
+    "subtitle": "Synchronizacja kont, licencje i zarządzanie urządzeniami",
     "status": "Praktyka laboratoryjna",
     "statusType": "lab",
     "categories": [
       "admin",
       "security"
     ],
-    "summary": "Zbudowałem laboratorium z domeną Windows Server, stacją administracyjną i klientami. Połączyłem lokalne konta z Entra ID, a urządzenia objąłem zarządzaniem w Intune.",
+    "summary": "Połączyłem lokalne AD z Entra ID. Zarządzałem kontami i licencjami Microsoft 365, rejestrowałem urządzenia w Intune i testowałem zasady dostępu z MFA.",
     "roles": [
-      "Konfiguracja AD i synchronizacji, zarządzanie kontami i licencjami oraz sprawdzenie zasad dostępu na różnych urządzeniach."
+      "Synchronizacja tożsamości, zarządzanie licencjami oraz weryfikacja zgodności urządzeń i dostępu."
     ],
     "details": [
       {
-        "title": "Domena i użytkownicy",
-        "text": "Utworzyłem strukturę OU, użytkowników i grupy. Administrację prowadzę ze stacji z narzędziami RSAT. Sprawdziłem zmianę danych użytkownika w AD, synchronizację do Entra ID oraz dostęp do Teams po włączeniu i wyłączeniu usługi w licencji."
+        "title": "Konta i licencje",
+        "text": "Zmieniłem dane użytkownika w AD i potwierdziłem aktualizację w Entra ID. Sprawdziłem też dostęp do Teams po włączeniu i wyłączeniu usługi w licencji testowego użytkownika."
       },
       {
-        "title": "Urządzenia i dostęp",
-        "text": "Skonfigurowałem automatyczną rejestrację przez GPO. Porównałem komputer Hybrid Entra joined, zarejestrowany laptop i niezarządzany host. W Intune i logach logowania sprawdziłem stan Managed, Compliant oraz wynik Conditional Access."
+        "title": "Intune i Conditional Access",
+        "text": "Skonfigurowałem automatyczną rejestrację przez GPO. Porównałem stację Hybrid Entra joined, zarejestrowany laptop i niezarządzany host. W logach sprawdziłem MFA, stan Managed/Compliant i wynik polityki."
       },
       {
-        "title": "Diagnoza synchronizacji",
-        "text": "Przy problemie z instalacją Entra Connect sprawdziłem źródło czasu i pozostałości poprzedniej instalacji. Po korekcie synchronizacji czasu i ponownej instalacji potwierdziłem udane operacje Import, Sync i Export. Przebieg zapisałem w repozytorium."
+        "title": "Diagnoza Entra Connect",
+        "text": "Przy nieudanej instalacji sprawdziłem źródło czasu i pozostałości wcześniejszej instalacji. Po korekcie synchronizacji czasu i ponownej instalacji potwierdziłem operacje Import, Sync i Export."
       }
     ],
     "stack": [
-      "Active Directory",
-      "GPO / RSAT",
-      "Entra ID",
+      "Microsoft 365",
+      "Entra Connect",
       "Intune",
-      "Conditional Access"
+      "MFA / Conditional Access"
     ],
     "links": [
       {
-        "label": "Konfiguracja i synchronizacja",
-        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/20-hybrid-identity/ad-connect-sync.md"
+        "label": "Konta i licencje",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/10-user-management/user-management.md"
       },
       {
         "label": "Testy dostępu",
@@ -423,15 +422,15 @@
     "images": [
       {
         "src": "/images/projects/admin/entra-sync.png",
-        "alt": "Entra Connect: operacje synchronizacji i eksportu ze statusem success; nazwy połączeń ukryte.",
-        "caption": "Entra Connect: operacje synchronizacji i eksportu ze statusem success; nazwy połączeń ukryte.",
+        "alt": "Entra Connect: operacje synchronizacji i eksportu ze statusem success w środowisku laboratoryjnym.",
+        "caption": "Entra Connect: operacje synchronizacji i eksportu ze statusem success w środowisku laboratoryjnym.",
         "width": 897,
         "height": 390
       },
       {
         "src": "/images/projects/admin/intune-device.png",
-        "alt": "Szczegóły urządzenia: Compliant Yes, Managed Yes i Hybrid Azure AD joined; identyfikator urządzenia ukryty.",
-        "caption": "Szczegóły urządzenia: Compliant Yes, Managed Yes i Hybrid Azure AD joined; identyfikator urządzenia ukryty.",
+        "alt": "Urządzenie laboratoryjne: Compliant Yes, Managed Yes i Hybrid Azure AD joined.",
+        "caption": "Urządzenie laboratoryjne: Compliant Yes, Managed Yes i Hybrid Azure AD joined.",
         "width": 750,
         "height": 300
       },
@@ -441,146 +440,252 @@
         "caption": "Test niezarządzanego komputera: MFA zakończone powodzeniem, zasada wymagająca zgodnego urządzenia ze statusem Failure.",
         "width": 750,
         "height": 350
+      },
+      {
+        "src": "/images/projects/admin/teams-denied.png",
+        "alt": "Test konta laboratoryjnego po zmianie licencji: Teams informuje o braku uprawnień do organizacji.",
+        "caption": "Test konta laboratoryjnego po zmianie licencji: Teams informuje o braku uprawnień do organizacji.",
+        "width": 900,
+        "height": 460
+      },
+      {
+        "src": "/images/projects/admin/teams-license.png",
+        "alt": "Microsoft 365: usługa Microsoft Teams wyłączona w licencji testowego użytkownika.",
+        "caption": "Microsoft 365: usługa Microsoft Teams wyłączona w licencji testowego użytkownika.",
+        "width": 910,
+        "height": 820
       }
     ],
     "visual": "hybrid",
     "reviewed": "2026-11-14",
-    "result": "Synchronizacja kont zakończona powodzeniem. W testowanej polityce zgodne urządzenie uzyskało dostęp, a niezarządzany komputer został zablokowany mimo poprawnego MFA.",
+    "result": "Zmiany kont synchronizowały się z chmurą. W testowanej polityce zgodne urządzenie uzyskało dostęp, a niezarządzany komputer został zablokowany mimo poprawnego MFA.",
     "compactHeading": true,
     "wideHeading": true,
     "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "infrastructure",
-    "name": "Linux i dostęp przez VPN",
-    "subtitle": "Ubuntu, usługi systemowe i połączenie z laboratorium",
+    "name": "Linux i utrzymanie serwerów",
+    "subtitle": "Usługi, uprawnienia i środowiska własnych projektów",
     "status": "Laboratorium i własne projekty",
     "statusType": "practice",
     "categories": [
       "admin"
     ],
-    "summary": "Skonfigurowałem OpenVPN na Ubuntu, certyfikaty serwera i klienta oraz routing do sieci laboratorium. Sprawdzałem usługę przez systemd, logi połączenia i komunikację z kontrolerem domeny.",
+    "summary": "Pracuję z Ubuntu: sprawdzam usługi, logi i uprawnienia plików. Na serwerach AWS utrzymuję własne aplikacje, korzystając z SSH, Dockera oraz nginx i Caddy.",
     "roles": [
-      "Konfiguracja serwera OpenVPN, certyfikatów, przekierowania portu oraz routingu i NAT."
+      "Obsługa serwerów Ubuntu, diagnoza usług i uprawnień oraz utrzymanie własnych aplikacji."
     ],
     "details": [
       {
-        "title": "Konfiguracja VPN",
-        "text": "OpenVPN i Easy-RSA na Ubuntu: własne CA, certyfikaty serwera i klienta oraz profil połączenia. Włączyłem przekazywanie pakietów, trasę do sieci laboratorium i regułę NAT. Sprawdziłem stan usługi oraz zakończenie inicjalizacji."
+        "title": "Usługi i logi",
+        "text": "Sprawdzam stan usługi, komunikaty startowe i działanie procesu. Zrzut OpenVPN pokazuje active (running) oraz zakończoną inicjalizację; konfigurację tunelu i połączeń opisuję w obszarze sieci."
       },
       {
-        "title": "Serwery własnych projektów",
-        "text": "Poza laboratorium utrzymuję aplikacje na Ubuntu w AWS EC2. Korzystam z SSH, Dockera oraz nginx i Caddy; pracuję z domenami, HTTPS, logami i kopiami danych. To środowiska moich projektów, w tym APPLI i tego portfolio."
+        "title": "Uprawnienia w Linux",
+        "text": "W ćwiczeniach odczytuję właściciela, grupę i prawa dostępu przez ls -la oraz stat. Notatki obejmują chmod i specjalne bity uprawnień. Zrzut pochodzi z ćwiczenia laboratoryjnego."
+      },
+      {
+        "title": "Serwery projektowe",
+        "text": "Łączę się przez SSH i VS Code Remote, uruchamiam aplikacje w Dockerze oraz pracuję z domenami, HTTPS, logami i kopiami danych. To infrastruktura moich projektów, nie wdrożenie dla klienta."
       }
     ],
     "stack": [
       "Ubuntu / systemd",
-      "OpenVPN / Easy-RSA",
-      "Routing / NAT",
-      "AWS / SSH",
-      "Docker"
+      "SSH",
+      "Docker",
+      "AWS EC2",
+      "nginx / Caddy"
     ],
     "links": [
       {
-        "label": "Konfiguracja OpenVPN",
+        "label": "Usługa na Ubuntu",
         "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/10-openvpn-server-setup/openvpn-setup.md"
       },
       {
-        "label": "Test dostępu do sieci",
-        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/30-network-access/network-access.md"
+        "label": "Uprawnienia w Linux",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/linux/linux-file-permissions.md"
       }
     ],
     "images": [
       {
         "src": "/images/projects/admin/vpn-service.png",
-        "alt": "OpenVPN na Ubuntu: usługa active (running) oraz Initialization Sequence Completed; nazwa konta ukryta.",
-        "caption": "OpenVPN na Ubuntu: usługa active (running) oraz Initialization Sequence Completed; nazwa konta ukryta.",
+        "alt": "Ubuntu: usługa OpenVPN active (running) oraz Initialization Sequence Completed.",
+        "caption": "Ubuntu: usługa OpenVPN active (running) oraz Initialization Sequence Completed.",
         "width": 1265,
         "height": 405
       },
       {
-        "src": "/images/projects/admin/vpn-client.png",
-        "alt": "OpenVPN Connect: Securely Connected; nazwa profilu i adresy połączenia ukryte.",
-        "caption": "OpenVPN Connect: Securely Connected; nazwa profilu i adresy połączenia ukryte.",
-        "width": 597,
-        "height": 943
-      },
-      {
-        "src": "/images/projects/admin/vpn-ping.png",
-        "alt": "Test połączenia przez VPN z kontrolerem domeny w laboratorium: cztery odpowiedzi, zero utraconych pakietów; nazwa konta ukryta.",
-        "caption": "Test połączenia przez VPN z kontrolerem domeny w laboratorium: cztery odpowiedzi, zero utraconych pakietów; nazwa konta ukryta.",
-        "width": 1060,
-        "height": 510
+        "src": "/images/projects/admin/linux-permissions.png",
+        "alt": "Ćwiczenie Linux: ls -la pokazuje właściciela, grupę oraz uprawnienia plików i katalogów.",
+        "caption": "Ćwiczenie Linux: ls -la pokazuje właściciela, grupę oraz uprawnienia plików i katalogów.",
+        "width": 1098,
+        "height": 620
       }
     ],
     "visual": "infrastructure",
     "reviewed": "2026-11-14",
-    "result": "Klient zestawił tunel VPN, a test połączenia z kontrolerem domeny zakończył się bez utraty pakietów.",
+    "result": "W laboratorium potwierdziłem działanie usługi OpenVPN przez systemd i log inicjalizacji. Własne projekty, w tym APPLI i portfolio, udostępniam przez HTTPS.",
     "compactHeading": true,
     "wideHeading": true,
     "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "adminlab",
-    "name": "Windows Server — diagnoza DHCP",
-    "subtitle": "Od braku adresu IP do działającej domeny",
-    "status": "Przypadek z laboratorium",
+    "name": "Windows Server i Active Directory",
+    "subtitle": "Domena, konta i administracja ze stacji RSAT",
+    "status": "Praktyka laboratoryjna",
     "statusType": "lab",
     "categories": [
       "admin"
     ],
-    "summary": "Po instalacji kontrolera domeny klienci przestali otrzymywać adresy z DHCP. Windows korzystał z APIPA, a logowanie do domeny nie działało. Sprawdziłem konfigurację klientów, DNS i stan DHCP na serwerze.",
+    "summary": "Zbudowałem domenę Windows Server z DNS i DHCP. Przygotowałem strukturę OU, konta i grupy oraz osobną stację z RSAT do zarządzania środowiskiem.",
     "roles": [
-      "Diagnoza braku dzierżawy DHCP, przywrócenie działania IPv4 i sprawdzenie klientów Windows oraz Ubuntu."
+      "Konfiguracja domeny, użytkowników i grup, przygotowanie stacji RSAT oraz diagnoza DHCP."
     ],
     "details": [
       {
-        "title": "Objawy",
-        "text": "Adres APIPA na Windows, brak prawidłowego adresu na Ubuntu i niedostępna domena. Zebrałem wyniki ipconfig, błędy rozwiązywania nazw i komunikaty logowania."
+        "title": "Organizacja domeny",
+        "text": "Oddzielne OU dla administratorów, użytkowników, grup, stacji roboczych i serwerów. Konta i członkostwo w grupach przygotowałem pod konkretne scenariusze synchronizacji, licencji i dostępu."
       },
       {
-        "title": "Naprawa i weryfikacja",
-        "text": "W konsoli DHCP stwierdziłem nieaktywny IPv4. Po jego aktywacji i restarcie usługi sprawdziłem przydział adresów, odpowiedź nslookup i logowanie klienta do domeny. Dokumentacja zawiera zrzuty przed naprawą i po niej."
+        "title": "Administracja przez RSAT",
+        "text": "Na ws-admin01 zainstalowałem narzędzia AD, Group Policy, DNS i DHCP przez PowerShell. Zarządzanie domeną wykonuję z tej stacji, bez pracy bezpośrednio na kontrolerze."
+      },
+      {
+        "title": "Przykład: brak dzierżawy DHCP",
+        "text": "Po promocji kontrolera domeny Windows otrzymywał adres APIPA. W konsoli DHCP stwierdziłem nieaktywny IPv4. Po aktywacji i restarcie usługi sprawdziłem dzierżawy, nslookup i logowanie; zachowałem zrzuty przed naprawą i po niej."
       }
     ],
     "stack": [
       "Windows Server",
-      "DHCP",
-      "DNS",
-      "ipconfig / nslookup"
+      "AD DS / OU",
+      "GPO / RSAT",
+      "DNS / DHCP"
     ],
     "links": [
       {
-        "label": "Opis problemu i rozwiązania",
+        "label": "Struktura domeny",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/10-onprem-identity/ad_setup.md"
+      },
+      {
+        "label": "Diagnoza i naprawa DHCP",
         "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/windows/active-directory/dhcp-not-working-after-dc-promotion.md"
       }
     ],
     "images": [
       {
+        "src": "/images/projects/admin/ad-structure.png",
+        "alt": "Active Directory: jednostki OU Admins, Users-Lab, Groups, Workstations i Servers w domenie lab.local.",
+        "caption": "Active Directory: jednostki OU Admins, Users-Lab, Groups, Workstations i Servers w domenie lab.local.",
+        "width": 754,
+        "height": 531
+      },
+      {
+        "src": "/images/projects/admin/rsat-tools.png",
+        "alt": "Narzędzia RSAT na stacji administracyjnej: Active Directory, DNS, DHCP i Group Policy Management.",
+        "caption": "Narzędzia RSAT na stacji administracyjnej: Active Directory, DNS, DHCP i Group Policy Management.",
+        "width": 1304,
+        "height": 825
+      },
+      {
         "src": "/images/projects/admin/dhcp-before.png",
-        "alt": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x; adres IPv6 ukryty.",
-        "caption": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x; adres IPv6 ukryty.",
+        "alt": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x.",
+        "caption": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x.",
         "width": 1114,
         "height": 390
       },
       {
         "src": "/images/projects/admin/dhcp-after.png",
-        "alt": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local; adres IPv6 ukryty.",
-        "caption": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local; adres IPv6 ukryty.",
+        "alt": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local.",
+        "caption": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local.",
         "width": 1115,
         "height": 390
       },
       {
         "src": "/images/projects/admin/dns-result.png",
-        "alt": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium; adres IPv6 ukryty.",
-        "caption": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium; adres IPv6 ukryty.",
+        "alt": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium.",
+        "caption": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium.",
         "width": 961,
         "height": 218
       }
     ],
     "visual": "adminlab",
     "reviewed": "2026-11-14",
-    "result": "Po aktywacji IPv4 w konsoli DHCP i restarcie usługi klienci otrzymali adresy. Potwierdziłem odpowiedź DNS dla domeny oraz poprawne logowanie.",
+    "result": "Po awarii DHCP przywróciłem przydzielanie adresów klientom Windows i Ubuntu. Sprawdziłem odpowiedź DNS oraz logowanie do domeny.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
+  },
+  {
+    "id": "network",
+    "name": "Sieci i zdalny dostęp",
+    "subtitle": "Sieć laboratorium, routing i połączenie przez VPN",
+    "status": "Praktyka laboratoryjna",
+    "statusType": "lab",
+    "categories": [
+      "admin"
+    ],
+    "summary": "Zorganizowałem sieć maszyn w VirtualBox: NAT do internetu i osobną sieć lab-net. Skonfigurowałem OpenVPN z certyfikatami oraz routing do zasobów laboratorium.",
+    "result": "Klient zestawił tunel VPN i dotarł do kontrolera domeny. Test ping zakończył się czterema odpowiedziami bez utraty pakietów.",
+    "roles": [
+      "Konfiguracja sieci maszyn wirtualnych, certyfikatów VPN, przekierowania portu i routingu."
+    ],
+    "details": [
+      {
+        "title": "Sieci w VirtualBox",
+        "text": "Oddzieliłem dostęp do internetu od komunikacji wewnętrznej. Przy problemach z łącznością sprawdzałem adresację, tablicę routingu i DNS; brama domyślna pozostała na interfejsie NAT."
+      },
+      {
+        "title": "Tunel i certyfikaty",
+        "text": "Na Ubuntu przygotowałem OpenVPN i Easy-RSA: CA, certyfikaty serwera i klienta oraz profil połączenia. Ustawiłem przekierowanie UDP 1194, forwarding, trasę do lab-net i regułę NAT."
+      },
+      {
+        "title": "Weryfikacja połączenia",
+        "text": "Sprawdziłem połączenie w OpenVPN Connect i odpowiedź kontrolera domeny 10.10.10.10 przez tunel. Zrzuty pokazują konfigurację wirtualnej sieci, połączonego klienta i wynik testu."
+      }
+    ],
+    "stack": [
+      "VirtualBox",
+      "NAT / routing",
+      "OpenVPN / Easy-RSA",
+      "Diagnostyka sieci"
+    ],
+    "links": [
+      {
+        "label": "Układ laboratorium",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/lab-virtualization/week-01-lab-deployment.md"
+      },
+      {
+        "label": "Konfiguracja i test VPN",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/30-network-access/network-access.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/virtualbox-network.png",
+        "alt": "VirtualBox: Ubuntu Server z kartą w sieci wewnętrznej lab-net.",
+        "caption": "VirtualBox: Ubuntu Server z kartą w sieci wewnętrznej lab-net.",
+        "width": 940,
+        "height": 527
+      },
+      {
+        "src": "/images/projects/admin/vpn-client.png",
+        "alt": "OpenVPN Connect: Securely Connected, profil client1 i adresy laboratoryjnego połączenia.",
+        "caption": "OpenVPN Connect: Securely Connected, profil client1 i adresy laboratoryjnego połączenia.",
+        "width": 597,
+        "height": 943
+      },
+      {
+        "src": "/images/projects/admin/vpn-ping.png",
+        "alt": "Połączenie przez VPN z kontrolerem domeny 10.10.10.10: cztery odpowiedzi, zero utraconych pakietów.",
+        "caption": "Połączenie przez VPN z kontrolerem domeny 10.10.10.10: cztery odpowiedzi, zero utraconych pakietów.",
+        "width": 1060,
+        "height": 510
+      }
+    ],
+    "visual": "network",
+    "reviewed": "2026-11-14",
     "compactHeading": true,
     "wideHeading": true,
     "detailsLabel": "Zakres i szczegóły"
