@@ -1,5 +1,83 @@
 # HANDOFF — Portfolio
 
+## Согласованная версия опубликована — 2026-11-14, 22:39:51 UTC
+
+**Статус: опубликовано и проверено** на https://portfolio.appli-lab.pl/.
+
+- Ветка: `publish/portfolio-approved-20261114`; [PR #4](https://github.com/DenysNew/portfolio/pull/4), открыт, не слит.
+- Точный опубликованный коммит исходников: `dc2073ad751d9a8474090afd5a2ac4fbef4a64d3`.
+  Последующий коммит этого отчёта меняет только документацию и не требует новой публикации.
+- Выпуск: `/var/www/portfolio/releases/20261114T223858Z-dc2073ad751d`.
+- `current`: `releases/20261114T223858Z-dc2073ad751d`.
+- Фактически прочитанная прежняя цель, сохранённая для отката: `releases/20261113T233114Z-4ad5f1c03ed1`.
+  Предыдущие выпуски не удалены.
+- Публикация выполнена по прямому поручению владельца из чистого checkout точного коммита.
+  Дизайн, тексты, скриншоты и четыре PDF перенесены из согласованного пакета без изменений.
+- Переданы только 31 штатный файл свежего `dist/`. До переключения проверены точный
+  состав, SHA-256 каждого файла, отсутствие лишних файлов/симлинков, права 755/644
+  и чтение всех файлов от пользователя Caddy. Архивы и манифесты вне web root.
+- Перед атомарным `os.replace` символической ссылки повторно проверена прежняя цель.
+  Caddyfile, DNS, IAM, SSH и сетевые правила не менялись; reload/restart не выполнялся.
+
+### Проверено
+
+- Размер/SHA-256 архива, безопасная распаковка, `sha256sum -c SHA256SUMS`, полный
+  манифест 36 исходников и 31 файла сборки. `rclone check`: 2 совпавших файла, 0 различий.
+- Node 26.13.0: `npm run build`, `npm run check`, `node --check src/app.js`,
+  `node --check scripts/build.mjs`, `git diff --check`. Сборка повторена из чистого
+  закоммиченного состояния; все 31 путь и SHA-256 совпали с эталоном.
+- GitHub Actions для опубликованного коммита: [validate — SUCCESS](https://github.com/DenysNew/portfolio/actions/runs/43649191799/job/132613636324).
+- HTTPS 200 с обычной проверкой TLS; HTTP → HTTPS 308. Все 31 публичный файл совпали
+  с новой сборкой по SHA-256; четыре PDF имеют тип `application/pdf`.
+- Chromium локально с действующей CSP и на публичном HTTPS: три прямые ссылки,
+  переключение направлений и соответствующего CV в контактах, выбор всех четырёх CV,
+  скачивание каждого PDF кнопкой и сверка SHA-256; 12 блоков деталей и 7 галерей
+  во всех направлениях, все изображения, боковые стрелки, клавиши, Escape и возврат фокуса.
+- Ширины 375/390 px — без горизонтального переполнения. Проверен reduced motion;
+  просмотрены desktop/mobile скриншоты. Финальные прогоны — без ошибок JS/CSP/загрузки.
+- Ссылки ведут именно на канал `https://www.youtube.com/@DigitalWorkshopLab`,
+  CC и English Practice. Обе страницы CC до/после: HTTPS 200, SHA-256 тел не изменился.
+- `/.git/config`, `/.env`, `/content/projects.json`, `/scripts/build.mjs`,
+  `/docs/HANDOFF.md`, `/.openai/hosting.json`, `/qa.html`, `/release-manifest.json`,
+  `/SHA256SUMS` возвращают 404.
+- Caddy active; SHA-256 `/etc/caddy/Caddyfile` до/после:
+  `0c1e7032cffb5b5cae3fe792137c8a65a73010595c423b745493dea59480bb97`. CSP сохранена без ослабления.
+- Локальные протоколы: `~/work/tmp/portfolio-approved-publish-20261114/`
+  (`deployment.json`, `before.json`, `public-http-checks.json`, `local-browser.json`,
+  `live-browser.json`, скриншоты и контрольные суммы). Эти материалы не опубликованы как сайт.
+
+### Не проверено
+
+Независимое ревью, Firefox/Safari, физические устройства и screen reader не проверялись.
+Публикация не подтверждает работу внутренних приложений, очереди агентов или GPU-процесса.
+Откат не потребовался и не выполнялся; его команды и синтаксис проверены.
+
+### Откат именно этого выпуска
+
+Проверка текущей цели предотвращает перезапись последующей публикации.
+Конфигурацию Caddy и предыдущие выпуски не изменять.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+ssh -o BatchMode=yes audio-app 'bash -se' <<'ROLLBACK'
+set -euo pipefail
+cd /var/www/portfolio
+[ "$(readlink current)" = releases/20261114T223858Z-dc2073ad751d ]
+[ -d releases/20261113T233114Z-4ad5f1c03ed1 ]
+[ ! -e current.rollback-20261114T223858Z-dc2073ad751d ] && [ ! -L current.rollback-20261114T223858Z-dc2073ad751d ]
+ln -s releases/20261113T233114Z-4ad5f1c03ed1 current.rollback-20261114T223858Z-dc2073ad751d
+mv -Tf current.rollback-20261114T223858Z-dc2073ad751d current
+readlink current
+ROLLBACK
+curl --fail --silent --show-error -o /dev/null https://portfolio.appli-lab.pl/
+```
+
+Для работы опубликованного сайта дополнительных действий владельца не требуется.
+Слияние PR #4 в main остаётся отдельным решением владельца.
+
+---
+
 ## Подготовка согласованного пакета — 2026-11-14 UTC
 
 Ветка `publish/portfolio-approved-20261114` создана от актуального `main`

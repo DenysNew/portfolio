@@ -46,7 +46,7 @@ Four reviewed standalone PDFs are available: AI/Automation, IT Support, System A
 
 ## Deployment
 
-Live: **https://portfolio.appli-lab.pl/** — verified on 2026-11-12.
+Live: **https://portfolio.appli-lab.pl/** — approved package published and verified on 2026-11-14.
 See [deployment instructions](docs/DEPLOYMENT.md) and [current handoff](docs/HANDOFF.md).
 
 The supplied GitHub Actions workflow builds and validates changes. It does not deploy to AWS or require credentials.
