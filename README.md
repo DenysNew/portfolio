@@ -25,7 +25,7 @@ Open the address printed by the preview server. For deployment, copy only the ge
 | `content/cv/` | Curated short descriptions for each CV |
 | `src/` | Styles and accessible interactions |
 | `public/images/` | Approved project screenshots |
-| `public/cv/` | Current reviewed PDF for download |
+| `public/cv/` | Four reviewed PDFs for download |
 | `templates/cv/` | CV generation notes |
 | `scripts/` | Build, validation, preview and deployment |
 | `deploy/` | Caddy configuration example |
@@ -42,11 +42,11 @@ The same page supports `/#ai`, `/#admin`, and `/#security`. Each project has a s
 3. Build and check. Preview the affected perspectives and the PDF.
 4. Review and commit changes; publish a specific accepted commit.
 
-Current CV download is a reviewed standalone PDF. Website builds do not silently rewrite it. See [CV updates](docs/CV.md) for the staged plan for generated variants.
+Four reviewed standalone PDFs are available: AI/Automation, IT Support, System Administrator and SOC Analyst. The contact section follows the selected perspective; the header offers all four. Website builds copy the approved PDFs without rewriting them. See [CV updates](docs/CV.md) for historical generation notes.
 
 ## Deployment
 
-Live: **https://portfolio.appli-lab.pl/** — verified on 2026-11-12.
+Live: **https://portfolio.appli-lab.pl/** — approved package published and verified on 2026-11-14.
 See [deployment instructions](docs/DEPLOYMENT.md) and [current handoff](docs/HANDOFF.md).
 
 The supplied GitHub Actions workflow builds and validates changes. It does not deploy to AWS or require credentials.
