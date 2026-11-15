@@ -1,5 +1,94 @@
 # HANDOFF — Portfolio
 
+## Четыре согласованных CV обновлены и опубликованы — 2026-11-15 UTC
+
+**Опубликовано и проверено:** https://portfolio.appli-lab.pl/.
+
+- Точный SHA опубликованных исходников: `c4b1d63e6324513447e1f4e816c13df691f31e5a`.
+- Рабочая ветка: `chore/cv-refresh-20261115`. Последующий коммит отчёта меняет только документацию.
+- Новый выпуск: `/var/www/portfolio/releases/20261115T104421Z-c4b1d63e6324`.
+- Предыдущая цель `current` для отката: `releases/20261114T233913Z-f603683f9897`; выпуск сохранён.
+- Основание: `8a08a88b7107e85909af170bdd8070cd7f80bbbb` — полный PR #5 и его отчёт.
+  До замены CV свежая сборка основания побайтно совпала со всеми 46 файлами действующего
+  выпуска. Более поздних опубликованных изменений не обнаружено. Устаревший main не использовался.
+- Изменены только четыре PDF по прежним публичным именам. Тексты, изображения, стили,
+  JavaScript, галереи и привязки кнопок не менялись: остальные 42 файла dist имеют прежние SHA-256.
+- Оригинальные PDF получены через существующий доступ Google Drive, без конвертации,
+  генерации или изменения общего доступа. Папка владельца: `1qPSU3xt6p82SI6CIWMS8Hq7lCW5sdoPa`.
+
+### Проверено
+
+- Настоящие PDF (`%PDF-`, успешный разбор pypdf), ровно одна страница каждый.
+  Все содержат действующую URI-аннотацию на `portfolio.appli-lab.pl` с нужным направлением;
+  AI дополнительно содержит `https://appli-lab.pl/`. Содержание согласовано владельцем,
+  повторная редактура не проводилась.
+- `npm run build`, `npm run check`, `git diff --check` — успешно: 10 проектов, 3 направления, 4 CV.
+- До переключения: точные пути и SHA-256 всех 46 файлов на сервере совпали со сборкой,
+  лишних файлов и симлинков нет; каталоги 755, файлы 644. Пользователь Caddy прочитал
+  и проверил SHA-256 всех файлов. Передан только dist; манифесты вне публичного каталога.
+- `current` перепроверен перед атомарным переключением через уникальную временную ссылку и `mv -Tf`.
+- После переключения: HTTPS 200 с обычной проверкой TLS; HTTP → HTTPS 308;
+  все 46 файлов скачаны по HTTPS и совпали со сборкой.
+- Все четыре PDF отдельно сохранены из публичных HTTPS-ответов: Content-Type application/pdf,
+  SHA-256 совпадает с оригиналами Диска, одна страница, встроенные URI-ссылки совпадают.
+- Chromium локально с действующей CSP и на публичном сайте: правильные CV в общем меню
+  и контактных блоках AI / Administracja IT / Cyberbezpieczeństwo; четыре браузерных скачивания
+  совпали по SHA-256. IT Support остаётся отдельным выбором общего меню; admin использует System Administrator.
+- Три вкладки, 4 блока администрации и 15 изображений сохранены; 11 галерей, боковые кнопки,
+  клавиатура, Escape, возврат фокуса и 12 раскрывающихся блоков прошли проверки.
+  Ширины 375/390 px без горизонтального переполнения; ошибок JavaScript/CSP/загрузки нет.
+- Caddyfile SHA-256 до/после: `0c1e7032cffb5b5cae3fe792137c8a65a73010595c423b745493dea59480bb97`.
+  Caddy active; reload/restart, изменения DNS и конфигурации не выполнялись.
+- CC Practice `/` и `/english.html`: HTTPS 200, тела ответов побайтно совпадают до/после.
+- `/.git/config`, `/.env`, `/docs/HANDOFF.md`, `/content/projects.json`, `/manifest.json` — 404.
+- Протоколы, исходные скачивания, HTTPS-копии, манифест и сценарии проверки:
+  `~/work/tmp/portfolio-cv-20261115/` (в публичный каталог не помещались).
+
+### SHA-256 оригиналов и опубликованных PDF
+
+| Публичное имя в `/cv/` | SHA-256 |
+|---|---|
+| `Denys_Nevskyi_CV_AI_Automation_PL.pdf` | `e303390464b4db804e25c5918c9129d462b99d8151a3f1bd821f02dff396e222` |
+| `Denys_Nevskyi_IT_Support_CV_PL.pdf` | `d56acc8fd574e7f9fd81fbf70803f4303f11af978975ca9500a9a2dfccb3e03a` |
+| `Denys_Nevskyi_SOC_Analyst_CV_PL.pdf` | `3d0768f57697a98d3f83013a8b52ddf34166f4434af4dd82bb47248a1d00f043` |
+| `Denys_Nevskyi_System_Administrator_CV_PL.pdf` | `05ab7eae3227279e559361360e6b2b3bf0be040e391d8b878f10d8144aa30b25` |
+
+Источники Google Drive по ID: AI `1snuUOhTpwOU2QyHvKhLlI2gL3x3ZgPr6`,
+IT Support `12WTS0qTGCnWjqcvV9-NYUcb3BlUKYsxi`,
+System Administrator `1f8RNCIpKEU7eEXTp-HmSztOlC6wDtShk`,
+SOC `1tB1-OPKqaz_rjzsAGMvfdMil4-HQ2H_n`.
+
+### Не проверено
+
+Safari/Firefox, физические устройства и screen reader отдельно не проверялись.
+Независимое ревью не запускалось: заменены готовые документы, утверждённые владельцем;
+код сайта не менялся. Документ проверен повторным чтением автора (самопроверка).
+Откат не потребовался и не выполнялся; синтаксис команды проверен.
+Существующие PR, включая #5, не изменялись и не сливались.
+
+### Точная команда отката
+
+Проверка текущей цели защищает от перезаписи последующей публикации. Старые выпуски не удалять.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+ssh -o BatchMode=yes audio-app 'bash -se' <<'REMOTE'
+set -euo pipefail
+cd /var/www/portfolio
+[ "$(readlink current)" = 'releases/20261115T104421Z-c4b1d63e6324' ]
+[ -d 'releases/20261114T233913Z-f603683f9897' ]
+[ ! -e 'current.rollback-85929b42cf4e4ba88d9bc427e44868db' ] && [ ! -L 'current.rollback-85929b42cf4e4ba88d9bc427e44868db' ]
+ln -s 'releases/20261114T233913Z-f603683f9897' 'current.rollback-85929b42cf4e4ba88d9bc427e44868db'
+[ "$(readlink current)" = 'releases/20261115T104421Z-c4b1d63e6324' ]
+mv -Tf 'current.rollback-85929b42cf4e4ba88d9bc427e44868db' current
+readlink current
+REMOTE
+curl --fail --silent --show-error -o /dev/null https://portfolio.appli-lab.pl/
+```
+
+---
+
 ## PR #5 опубликован целиком — 2026-11-14, 23:40:49 UTC
 
 **Опубликовано и проверено:** https://portfolio.appli-lab.pl/ (Administracja IT — four areas).
