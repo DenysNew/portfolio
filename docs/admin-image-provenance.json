@@ -1,0 +1,127 @@
+{
+  "repository": "https://github.com/DenysNew/learning-admin",
+  "commit": "3f21bb384a6a637112d123389ffef9bf3ae3c258",
+  "method": "ImageMagick crop and metadata removal. Lab identifiers retained at owner request; no reconstructed or translated content.",
+  "images": [
+    {
+      "file": "public/images/projects/admin/ad-structure.png",
+      "source": "20-microsoft365/10-onprem-identity/artifacts/OU_structure.png",
+      "crop": "754x531+100+152",
+      "opaqueMasks": [],
+      "sourceSha256": "c4631fbce21a0afdb689b0cafd1c986343db808d49f6d85c6b1a7199939c6852",
+      "outputSha256": "1e943d1371cfb65fb7b1b3b748140750397384212b037060805145fce315c652"
+    },
+    {
+      "file": "public/images/projects/admin/rsat-tools.png",
+      "source": "10-admin/windows/artifacts/admin-workstation/rsat-tools-visible-in-windows-tools.png",
+      "crop": "1304x825+0+79",
+      "opaqueMasks": [],
+      "sourceSha256": "5f55c157d49ee3f40349c3caa5ed02eee13280a1caef60ebf7344abbdb3be680",
+      "outputSha256": "500d0b9101dca70dadea2c7044d09dcb7f7153d0f25d80fcb718f8e604e5bb78"
+    },
+    {
+      "file": "public/images/projects/admin/teams-license.png",
+      "source": "20-microsoft365/10-user-management/artifacts/11-teams-disabled-in-license.png",
+      "crop": "910x820+470+220",
+      "opaqueMasks": [],
+      "sourceSha256": "0bb7d43e488f17203d6f0d396f6960b65f39ec23e36ae81213d6b69cce9e391f",
+      "outputSha256": "8c9dc5eee8eaaf427dfa6fa25409ae1c645eb69e91be190387d6adc31ca367d8"
+    },
+    {
+      "file": "public/images/projects/admin/teams-denied.png",
+      "source": "20-microsoft365/10-user-management/artifacts/12-teams-access-denied.png",
+      "crop": "900x460+260+330",
+      "opaqueMasks": [],
+      "sourceSha256": "b9540c48ef4da217fc9f1ee00350582c2ec739f677799bcb120dea3253d0cb95",
+      "outputSha256": "b34106274b2aa3c9a0bb3c631ad17dcf06a6f2520db7b8c3f4f3c5606faa11a3"
+    },
+    {
+      "file": "public/images/projects/admin/linux-permissions.png",
+      "source": "10-admin/linux/artifacts/permissions/01-basic-permissions.png",
+      "crop": "1098x620+38+101",
+      "opaqueMasks": [],
+      "sourceSha256": "e60fb1288237d13a92c958402332788f1f6d8b5c9dbc2fcecc7928427973fe35",
+      "outputSha256": "74c43eaafe2fc4f579084f015f4a2a971451cddd3280f0621b0ceca4c349ba90"
+    },
+    {
+      "file": "public/images/projects/admin/virtualbox-network.png",
+      "source": "images/lab-virtualization/vm-settings/ubuntu-server-network-lab-net.png",
+      "crop": "940x527+390+132",
+      "opaqueMasks": [],
+      "sourceSha256": "da8596a468c22f2ab3e2904a368c48a34113f8f312304423bf88564147b2c71b",
+      "outputSha256": "3964fc55e3419717a412584cba1e15fa27fcf838a7f25115ecaef589022b39fc"
+    },
+    {
+      "file": "public/images/projects/admin/entra-sync.png",
+      "source": "20-microsoft365/20-hybrid-identity/artifacts/ad-connect-sync-operations-success.png",
+      "crop": "897x390+303+247",
+      "opaqueMasks": [],
+      "sourceSha256": "21c900034cda19751737548267fd3cb34f3a115acbdb39794e603e222e4dfc61",
+      "outputSha256": "ef39b8657c5e9f24dd6618186a64aeb0af6653b61cebf4b1aa7bbb514c86b769"
+    },
+    {
+      "file": "public/images/projects/admin/intune-device.png",
+      "source": "20-microsoft365/30-security/conditional-access-compliant-device/artifacts/vm-device-info.png",
+      "crop": "750x300+925+40",
+      "opaqueMasks": [],
+      "sourceSha256": "752400ec891f8633fc1a7d72b53d217b374008592d8c472dfe1ee84c51a0d8eb",
+      "outputSha256": "220c98ac12081d3c84fcc2155d0135e469df010a6baa3d064064be7d484080a6"
+    },
+    {
+      "file": "public/images/projects/admin/conditional-access.png",
+      "source": "20-microsoft365/30-security/conditional-access-compliant-device/artifacts/host-conditional-access.png",
+      "crop": "750x350+934+40",
+      "opaqueMasks": [],
+      "sourceSha256": "f40008161d1f0df627fdf1398012c48a734c9e56ecc2edf6d268d88620435fb5",
+      "outputSha256": "4d18bf9fed5c18642f9a7644811e9eed870ddfd088f6166b4db35169397e89ae"
+    },
+    {
+      "file": "public/images/projects/admin/dhcp-before.png",
+      "source": "10-admin/windows/active-directory/artifacts/dhcp-after-dc-promotion/client-apipa-address-no-dhcp.png",
+      "crop": "1114x390+182+248",
+      "opaqueMasks": [],
+      "sourceSha256": "42091bff4b1f0decb4a877040c8f0fbfcfe28630a48dcf88af76e4a9543790a1",
+      "outputSha256": "b1deb567a15643646951d31ae78136cdcc5ef9a778a7c45b16885036f0f26dc1"
+    },
+    {
+      "file": "public/images/projects/admin/dhcp-after.png",
+      "source": "10-admin/windows/active-directory/artifacts/dhcp-after-dc-promotion/client-received-ip-from-dhcp.png",
+      "crop": "1115x390+78+154",
+      "opaqueMasks": [],
+      "sourceSha256": "b2e28c63982f4c19cbdae56b6046da4c21521193a96353c2b9450827521b524a",
+      "outputSha256": "283bca5be307a2a02ae5093356de6f3e7cf348e1d4eee01c52b193c316d02e09"
+    },
+    {
+      "file": "public/images/projects/admin/dns-result.png",
+      "source": "10-admin/windows/active-directory/artifacts/dhcp-after-dc-promotion/nslookup-lab-local-success.png",
+      "crop": "961x218+24+0",
+      "opaqueMasks": [],
+      "sourceSha256": "fef5304c01b29e42d26ecf4c4b9391bd2c8de69c8aae84f22b9396bcd70c9e31",
+      "outputSha256": "89e871d47ab8d1a8e453531b29413a715588244a45d58bebfa35b77ea3dfaaf4"
+    },
+    {
+      "file": "public/images/projects/admin/vpn-service.png",
+      "source": "30-vpn/30-network-access/artifacts/openvpn-server-running.png",
+      "crop": "1265x405+0+76",
+      "opaqueMasks": [],
+      "sourceSha256": "ab609fc979e2e70177297976ec62a00669a559175e37233c8ebc594fdd02c225",
+      "outputSha256": "b2be347d90c1c4a9d06f6ba18228e9673de95d787d3ce3df1e1f7646ffa62037"
+    },
+    {
+      "file": "public/images/projects/admin/vpn-client.png",
+      "source": "30-vpn/20-openvpn-client/artifacts/vpn-client-connected.png",
+      "crop": "597x943+281+20",
+      "opaqueMasks": [],
+      "sourceSha256": "9218cf4bca57a29cb8a210f3d64435fa2849e88dd314f17c4406411b85f1f883",
+      "outputSha256": "b624b1a4192f9572f816a86b18d00733113216a1a184542e35f0c55ce907ea54"
+    },
+    {
+      "file": "public/images/projects/admin/vpn-ping.png",
+      "source": "30-vpn/30-network-access/artifacts/ping-lab-success.png",
+      "crop": "1060x510+0+16",
+      "opaqueMasks": [],
+      "sourceSha256": "52ea832aeaaaad716215f3c66bf92a8c4ad58f91844133e79b04aebca8c7112a",
+      "outputSha256": "aa647f4b1ea68bb9dc519f5a5f561eeb49c83856fe69a0d3d6cacaf7746fae79"
+    }
+  ]
+}

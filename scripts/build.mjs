@@ -25,10 +25,10 @@ function card(p, track, index) {
   return `<article class="project${p.compactHeading?' project-compact':''}${p.wideHeading?' project-wide-heading':''}" id="${track}-${p.id}">
     <div class="project-heading">${p.compactHeading?`<div class="project-title"><h3>${esc(p.name)}</h3><p class="project-subtitle">${esc(p.subtitle)}</p></div>`:`<span class="project-number">${String(index+1).padStart(2,'0')}</span>`}<span class="status ${esc(p.statusType)}"><i aria-hidden="true"></i>${esc(p.status)}</span></div>
     <div class="project-layout"><div class="project-copy">${p.compactHeading?'':`<p class="project-subtitle">${esc(p.subtitle)}</p><h3>${esc(p.name)}</h3>`}<p class="summary">${esc(p.summary)}</p>
-    <p class="label">Moja rola</p>${p.roles.length===1?`<p class="role-summary">${esc(p.roles[0])}</p>`:`<ul class="role-list">${p.roles.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`}
+    <p class="label">${p.result?'Wynik':'Moja rola'}</p>${p.result?`<p class="role-summary">${esc(p.result)}</p>`:p.roles.length===1?`<p class="role-summary">${esc(p.roles[0])}</p>`:`<ul class="role-list">${p.roles.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`}
     <ul class="tags" aria-label="Narzędzia i technologie">${p.stack.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
     ${p.links.length?`<div class="project-links">${p.links.map(external).join('')}</div>`:''}${p.linkNote?`<p class="project-link-note">${esc(p.linkNote)}</p>`:''}</div>${visual(p)}</div>
-    <details class="project-details"><summary><span>Proces i szczegóły techniczne</span><span class="details-symbol" aria-hidden="true">+</span></summary><div class="details-grid">${p.details.map(d=>`<section><h4>${esc(d.title)}</h4><p>${esc(d.text)}</p></section>`).join('')}</div></details>
+    <details class="project-details"><summary><span>${esc(p.detailsLabel || 'Proces i szczegóły techniczne')}</span><span class="details-symbol" aria-hidden="true">+</span></summary><div class="details-grid">${p.details.map(d=>`<section><h4>${esc(d.title)}</h4><p>${esc(d.text)}</p></section>`).join('')}</div></details>
   </article>`;
 }
 const contactCvs = profile.tracks.map(track => {

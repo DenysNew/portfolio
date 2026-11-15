@@ -1,5 +1,96 @@
 # HANDOFF — Portfolio
 
+## PR #5 опубликован целиком — 2026-11-14, 23:40:49 UTC
+
+**Опубликовано и проверено:** https://portfolio.appli-lab.pl/ (Administracja IT — four areas).
+
+- Точный коммит опубликованного сайта: `f603683f989774f1f7a297d1e72702e1e2fe7a9d`.
+  Построен полный сайт из чистого worktree этого коммита, включая оба коммита PR #5:
+  `0abc9f818f75a1b193e0679e2414ad5a7b75aeba` и `f603683f989774f1f7a297d1e72702e1e2fe7a9d`.
+  Выборочного переноса и cherry-pick не было. Последующий коммит этого отчёта — только документация.
+- Ветка `task/admin-evidence-tab`; [PR #5](https://github.com/DenysNew/portfolio/pull/5)
+  остаётся **OPEN / Draft**, без слияния и без изменения статуса готовности.
+- Новый выпуск: `/var/www/portfolio/releases/20261114T233913Z-f603683f9897`.
+- Новая цель `current`: `releases/20261114T233913Z-f603683f9897`.
+- Фактическая предыдущая цель: `releases/20261114T223858Z-dc2073ad751d`; прежний выпуск сохранён.
+  Перед размещением полный манифест действующего выпуска отличался от новой сборки,
+  поэтому повторной публикации уже установленной версии не было.
+- Только `dist/`: 46 файлов. Перед переключением на сервере проверены точный набор
+  относительных путей и SHA-256 каждого файла, отсутствие лишних файлов/симлинков,
+  права каталогов 755 и файлов 644, чтение от пользователя Caddy.
+- Сохранённая цель `current` перепроверена непосредственно перед атомарным `mv -Tf`
+  временной символической ссылки. Манифест и архив размещения вне публичного каталога.
+- Caddyfile, DNS, CC Practice, другие приложения и настройки доступа не менялись;
+  Caddy не перезапускался и не перезагружался. SHA-256 Caddyfile до/после:
+  `0c1e7032cffb5b5cae3fe792137c8a65a73010595c423b745493dea59480bb97`; Caddy active.
+
+### Проверено при этой публикации
+
+- Node 26.13.0: `npm run build`, `npm run check`, `git diff --check`, синтаксис
+  `src/app.js` и `scripts/build.mjs`. 10 записей проектов, 3 направления, 4 PDF.
+- CI точного исходного коммита: [validate — SUCCESS](https://github.com/DenysNew/portfolio/actions/runs/43652856740/job/132624910555).
+- Все 15 файлов `public/images/projects/admin/` совпали с `outputSha256`
+  в `docs/admin-image-provenance.json`. Подготовленные изображения не менялись;
+  лабораторные идентификаторы сохранены по поручению владельца.
+- Тексты/данные AI-проектов сохранены относительно прошлой публикации; у `agents`
+  изменена только принадлежность к категории admin. Все четыре PDF побайтно прежние.
+- HTTPS 200 с обычной валидацией TLS; HTTP → HTTPS 308. Все 46 публичных файлов
+  совпали с локальной сборкой по SHA-256, включая 15 новых изображений и четыре PDF.
+- Chromium локально с действующей CSP и на публичном HTTPS: прямые `/#ai`, `/#admin`,
+  `/#security`, три вкладки и четыре блока администрации в согласованном порядке.
+- Все 11 галерей во вкладках, включая четыре галереи администрации и все 15 изображений:
+  открытие через Enter, боковые кнопки, ArrowLeft/ArrowRight, Escape и возврат фокуса.
+  Проверены клавиши навигации вкладок и раскрытие/закрытие всех 12 блоков подробностей.
+- Общий Microsoft-блок в Cyberbezpieczeństwo: тот же текст и галерея, что в admin;
+  изображения открываются, подробности раскрываются.
+- Контактный CV соответствует направлению. Верхний выбор содержит четыре PDF;
+  каждый скачан через браузер, SHA-256 совпал с исходным. Публичный тип — application/pdf.
+- Мобильные 375/390 px во всех вкладках — без горизонтального переполнения.
+  Во всех четырёх карточках admin миниатюры внутри ширины экрана и выше разделителя
+  подробностей. Просмотрены desktop/mobile скриншоты, проверен reduced motion.
+- Ошибок JavaScript, CSP и загрузки ресурсов в завершённых браузерных прогонах нет.
+- CC `/` и `/english.html`: HTTPS 200 до/после, SHA-256 ответов не изменился.
+- Служебные `/.git/config`, `/.env`, `/content/projects.json`, `/scripts/build.mjs`,
+  `/docs/HANDOFF.md`, `/.openai/hosting.json`, `/docs/admin-image-provenance.json`,
+  `/manifest.json`, `/dist-sha256.txt` возвращают 404.
+- Протоколы и манифест: `~/work/tmp/portfolio-pr5-publish-20261114/`
+  (`manifest.json`, `dist-sha256.txt`, `deployment.json`, `before.json`,
+  `public-http-checks.json`, `local-browser.json`, `live-browser.json`, скриншоты).
+
+### Не проверено и ограничения
+
+Safari/Firefox, физические мобильные устройства, screen reader и отдельное независимое
+ревью публикации не выполнялись. Работа исторической лаборатории и внутренних приложений
+не проверялась: задача — перенос готового сайта. Подготовленные изображения сверены с записанными
+выходными хэшами; повторная обработка оригиналов не требовалась и не выполнялась.
+Откат не потребовался и не запускался; синтаксис команды проверен.
+Все перечисленные владельцем проверки публикации выполнены в доступном Chromium/HTTP/SSH.
+
+### Точная команда отката
+
+Запускать с рабочего сервера. Проверка текущей цели не даст перезаписать последующую
+публикацию. Предыдущий выпуск и Caddyfile сохраняются.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+ssh -o BatchMode=yes audio-app 'bash -se' <<'ROLLBACK'
+set -euo pipefail
+cd /var/www/portfolio
+[ "$(readlink current)" = releases/20261114T233913Z-f603683f9897 ]
+[ -d releases/20261114T223858Z-dc2073ad751d ]
+[ ! -e current.rollback-20261114T233913Z-f603683f9897 ] && [ ! -L current.rollback-20261114T233913Z-f603683f9897 ]
+ln -s releases/20261114T223858Z-dc2073ad751d current.rollback-20261114T233913Z-f603683f9897
+mv -Tf current.rollback-20261114T233913Z-f603683f9897 current
+readlink current
+ROLLBACK
+curl --fail --silent --show-error -o /dev/null https://portfolio.appli-lab.pl/
+```
+
+Дополнительных шагов для работы сайта нет. Решение о merge PR #5 принимает владелец.
+
+---
+
 ## Согласованная версия опубликована — 2026-11-14, 22:39:51 UTC
 
 **Статус: опубликовано и проверено** на https://portfolio.appli-lab.pl/.
@@ -273,3 +364,34 @@ ROLLBACK
 ## Следующий шаг
 
 Владелец проверяет визуальный результат и PR. Дальнейшие изменения контента — отдельная задача; исходный PDF не переписывать автоматически.
+
+## Administracja IT — evidence-led simplification, 2026-11-14
+
+- Replaced four broad administration cards with three concrete cases: Active Directory/Microsoft 365, DHCP troubleshooting, and Ubuntu/OpenVPN. Removed the repeated agents card from this track. The hybrid case is shared with Security, so its evidence is updated there too.
+- Short configuration + result on the first view, compact headings, existing clickable photo piles, and optional “Zakres i szczegóły”. Added optional `result` and `detailsLabel` fields; other cards retain their existing role/details rendering.
+- Source of technical claims: public `DenysNew/learning-admin` at `3f21bb384a6a637112d123389ffef9bf3ae3c258`, especially AD/Entra synchronization, M365 user/license management, Conditional Access compliant-device comparisons, DHCP after DC promotion, and OpenVPN/network-access notes. Available conversation history supplied context; source records and screenshots determine the concrete claims. No new lab tests were performed.
+- Nine authentic screenshots were cropped and stripped of metadata. Opaque masks hide tenant/connector names, a device GUID, personal account names, IPv6 identifiers and VPN profile/endpoint details. Only isolated private **laboratory** IPv4 addresses and the lab.local test domain remain to make DHCP/DNS/ping evidence interpretable; no production address inventory, certificate material or keys are included. Originals are unchanged.
+- Reproduction: `node scripts/prepare-admin-images.mjs /path/to/learning-admin`. Source paths, crop/mask coordinates and SHA-256 hashes are in `docs/admin-image-provenance.json`. Prepared assets were visually checked. Screens preserve genuine historical states, including a disabled startup flag on the running VPN service and the original DNS output; no states or text were reconstructed.
+- FreeRADIUS, planned capabilities, commercial experience and certifications are not claimed. Project-server experience is distinguished from the VPN lab in expandable details. No CV content changes.
+- Initial validation: `npm run build`, `npm run check`, `node --check scripts/build.mjs`, `git diff --check` passed. Responsive/gallery browser verification follows the private preview deployment.
+- Public repository base inspected: main `b218a5f84101e482e49ccdde15866f42da4a95e6` after merged PR #4. Application source matched this preview before the edit. Updating the private preview does not update `portfolio.appli-lab.pl`; its server deployment remains a separate step.
+- Browser validation completed on the owner-private preview `https://denys-portfolio-workshop.dicednacre.chatgpt.site/#admin`, source `b5df4273a5d7f64a51032826ec1406af21bc0dd4`: three administration cards, nine loaded images, keyboard gallery open/ArrowRight/Escape/focus return, click navigation, expandable details, track keyboard navigation and matching Administration CV link. All four PDF SHA-256 values match the previously published files.
+- Fixed a real responsive issue: a landscape third image in a mixed-orientation pile exceeded the mobile width. The new selector moves only that case within the pile. No clipping/overflow hiding was introduced. Tested 390×844 and 375×812: content and scroll widths match (375/375 and 360/360 respectively). Desktop reset to its normal width; no JS errors observed. Browser proof: `docs/evidence/admin-tab.png`; first-block crop: `docs/evidence/admin-tab-top.png`.
+- Existing AI project copy and the standalone security-learning entry were compared against the public main commit and are unchanged. Shared hybrid evidence appears in Security by design. `src/app.js` and all CVs are unchanged. Safari/Firefox, physical devices and screen-reader behavior were not tested.
+- Server handoff: build and check this PR's exact commit from a clean checkout, transfer only `dist/` into a new release, verify the full SHA-256 manifest before switching `/var/www/portfolio/current`, retain the actual previous release for rollback, and verify HTTPS plus `/#admin`, all nine images, the shared Security card, mobile layout and CV. Follow `docs/DEPLOYMENT.md`. Do not edit Caddy, DNS or CC Practice. No AWS deployment was executed from this environment.
+
+## Administracja IT — four areas, 2026-11-14
+
+This section supersedes the three-case arrangement and masking policy above.
+
+- The Administration track now has four subject areas, in order: Windows Server / Active Directory; Microsoft 365 / Entra ID / Intune; Linux / server maintenance; networks / remote access. DHCP troubleshooting is a concrete result inside Windows; VPN connectivity belongs to Networks. The Microsoft card remains shared with Security.
+- Each area retains a short summary, a verified historical result, a clickable photo pile and three optional detail sections. No new interaction model or CV changes.
+- Fifteen original lab captures: AD OU structure, RSAT, DHCP before/after and DNS; Entra sync, Intune, Conditional Access and two Teams license tests; Linux permissions and systemd service state; VirtualBox network, VPN client and ping. Evidence repository remains learning-admin at 3f21bb384a6a637112d123389ffef9bf3ae3c258.
+- At the owner's request, lab addresses, VM names, test users, tenant labels and the non-secret device identifier are visible. Screens are cropped to relevant application content and stripped of metadata; no masks or fabricated text. The source originals are unchanged. Public assets contain no keys, passwords or certificate contents. Crop geometry and source/output hashes are recorded in admin-image-provenance.json and reproducible with scripts/prepare-admin-images.mjs.
+- Linux lab evidence is distinguished from own-project hosting. No claims of commercial deployment, new live lab validation or completed planned features. Existing AI entries and the standalone Security entry are unchanged.
+- Build, existing content/assets checks and git diff --check passed: ten project entries, three tracks, four CV PDFs. Private-preview interaction and responsive verification follows publication. The own-domain server has not been changed.
+
+- Preview QA found the nearly square license screenshot extending into the details divider. Kept it in the gallery and placed the wider Teams result fourth in the pile, leaving the layout and original screenshot intact.
+
+- Final browser verification on owner-private preview commit d6af5ea6d7f898983d4dcad769c90cde47af9e56: all four galleries and fifteen images loaded; Enter, ArrowRight, next, Escape and focus return worked. Expanded Microsoft and Network details. Chrome widths 390 and 375 px had no horizontal overflow; after the pile-order adjustment the Microsoft images stayed above the details divider. Correct Administration CV mapping, desktop width restored, no captured JS errors. Current proof: docs/evidence/admin-four-areas.jpg. Earlier screenshots retain their historical filenames. Safari/Firefox and physical devices were not tested.
+- Server handoff now covers FOUR administration areas and FIFTEEN images. Build this PR’s exact final commit and follow docs/DEPLOYMENT.md, keeping Caddy, DNS and CC Practice unchanged. This remains a draft PR; no public-server deployment or merge has been performed.

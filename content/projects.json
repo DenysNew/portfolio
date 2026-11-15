@@ -86,8 +86,7 @@
     "status": "W codziennej pracy",
     "statusType": "practice",
     "categories": [
-      "ai",
-      "admin"
+      "ai"
     ],
     "summary": "Gdy przybyło zadań i przeglądów kodu, zorganizowałem pracę Claude Code i Codex w jednym procesie na serwerze. Zadania przechodzą przez wykonanie, sprawdzenie i poprawki, także gdy mój komputer jest wyłączony.",
     "roles": [
@@ -378,179 +377,318 @@
   },
   {
     "id": "hybrid",
-    "name": "Laboratorium hybrydowe Microsoft",
-    "subtitle": "Tożsamość, urządzenia i dostęp",
+    "name": "Microsoft 365, Entra ID i Intune",
+    "subtitle": "Synchronizacja kont, licencje i zarządzanie urządzeniami",
     "status": "Praktyka laboratoryjna",
     "statusType": "lab",
     "categories": [
       "admin",
       "security"
     ],
-    "summary": "Łączę lokalne Active Directory z usługami Microsoft w chmurze. Sprawdzam dołączanie urządzeń, zarządzanie nimi i zasady dostępu.",
+    "summary": "Połączyłem lokalne AD z Entra ID. Zarządzałem kontami i licencjami Microsoft 365, rejestrowałem urządzenia w Intune i testowałem zasady dostępu z MFA.",
     "roles": [
-      "Pracuję z AD, GPO i synchronizacją do Entra ID.",
-      "Konfiguruję rejestrację urządzeń w Intune i sprawdzam zgodność.",
-      "Testuję MFA, Conditional Access i dostęp przez OpenVPN."
+      "Synchronizacja tożsamości, zarządzanie licencjami oraz weryfikacja zgodności urządzeń i dostępu."
     ],
     "details": [
       {
-        "title": "Środowisko",
-        "text": "Kontroler domeny, stacja administracyjna i kliencka oraz serwer Ubuntu z OpenVPN. Zadania administracyjne wykonuję ze stacji administracyjnej."
+        "title": "Konta i licencje",
+        "text": "Zmieniłem dane użytkownika w AD i potwierdziłem aktualizację w Entra ID. Sprawdziłem też dostęp do Teams po włączeniu i wyłączeniu usługi w licencji testowego użytkownika."
       },
       {
-        "title": "Przykłady weryfikacji",
-        "text": "Sprawdzałem automatyczną rejestrację urządzeń przez GPO, Hybrid Join, zarządzanie w Intune i zachowanie zasad wymagających MFA oraz zgodnego urządzenia."
+        "title": "Intune i Conditional Access",
+        "text": "Skonfigurowałem automatyczną rejestrację przez GPO. Porównałem stację Hybrid Entra joined, zarejestrowany laptop i niezarządzany host. W logach sprawdziłem MFA, stan Managed/Compliant i wynik polityki."
       },
       {
-        "title": "Zakres doświadczenia",
-        "text": "To własne środowisko laboratoryjne, które służy nauce i odtwarzaniu scenariuszy. Nie jest przedstawiane jako komercyjne wdrożenie dla klienta."
+        "title": "Diagnoza Entra Connect",
+        "text": "Przy nieudanej instalacji sprawdziłem źródło czasu i pozostałości wcześniejszej instalacji. Po korekcie synchronizacji czasu i ponownej instalacji potwierdziłem operacje Import, Sync i Export."
       }
     ],
     "stack": [
-      "Active Directory",
-      "GPO",
-      "Entra ID",
+      "Microsoft 365",
+      "Entra Connect",
       "Intune",
-      "Conditional Access",
-      "OpenVPN"
+      "MFA / Conditional Access"
     ],
-    "links": [],
-    "images": [],
+    "links": [
+      {
+        "label": "Konta i licencje",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/10-user-management/user-management.md"
+      },
+      {
+        "label": "Testy dostępu",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/30-security/conditional-access-compliant-device/conditional-access-compliant-device.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/entra-sync.png",
+        "alt": "Entra Connect: operacje synchronizacji i eksportu ze statusem success w środowisku laboratoryjnym.",
+        "caption": "Entra Connect: operacje synchronizacji i eksportu ze statusem success w środowisku laboratoryjnym.",
+        "width": 897,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/intune-device.png",
+        "alt": "Urządzenie laboratoryjne: Compliant Yes, Managed Yes i Hybrid Azure AD joined.",
+        "caption": "Urządzenie laboratoryjne: Compliant Yes, Managed Yes i Hybrid Azure AD joined.",
+        "width": 750,
+        "height": 300
+      },
+      {
+        "src": "/images/projects/admin/conditional-access.png",
+        "alt": "Test niezarządzanego komputera: MFA zakończone powodzeniem, zasada wymagająca zgodnego urządzenia ze statusem Failure.",
+        "caption": "Test niezarządzanego komputera: MFA zakończone powodzeniem, zasada wymagająca zgodnego urządzenia ze statusem Failure.",
+        "width": 750,
+        "height": 350
+      },
+      {
+        "src": "/images/projects/admin/teams-denied.png",
+        "alt": "Test konta laboratoryjnego po zmianie licencji: Teams informuje o braku uprawnień do organizacji.",
+        "caption": "Test konta laboratoryjnego po zmianie licencji: Teams informuje o braku uprawnień do organizacji.",
+        "width": 900,
+        "height": 460
+      },
+      {
+        "src": "/images/projects/admin/teams-license.png",
+        "alt": "Microsoft 365: usługa Microsoft Teams wyłączona w licencji testowego użytkownika.",
+        "caption": "Microsoft 365: usługa Microsoft Teams wyłączona w licencji testowego użytkownika.",
+        "width": 910,
+        "height": 820
+      }
+    ],
     "visual": "hybrid",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład z home labu",
-      "title": "Zgodność urządzenia a dostęp do usługi",
-      "steps": [
-        {
-          "title": "Rejestracja urządzenia",
-          "text": "Sprawdzam Hybrid Join i automatyczną rejestrację w Intune przez GPO."
-        },
-        {
-          "title": "Warunki dostępu",
-          "text": "Konfiguruję zasadę Conditional Access wymagającą MFA i zgodnego urządzenia."
-        },
-        {
-          "title": "Porównanie wyniku",
-          "text": "W laboratorium zgodne urządzenie uzyskuje dostęp, a komputer niespełniający warunku jest blokowany."
-        }
-      ],
-      "note": "Własne środowisko laboratoryjne. Administrację wykonuję ze stacji administracyjnej."
-    }
+    "result": "Zmiany kont synchronizowały się z chmurą. W testowanej polityce zgodne urządzenie uzyskało dostęp, a niezarządzany komputer został zablokowany mimo poprawnego MFA.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "infrastructure",
-    "name": "Infrastruktura własnych projektów",
-    "subtitle": "Serwery, dostęp i publikacja",
-    "status": "Środowisko projektowe",
+    "name": "Linux i utrzymanie serwerów",
+    "subtitle": "Usługi, uprawnienia i środowiska własnych projektów",
+    "status": "Laboratorium i własne projekty",
     "statusType": "practice",
     "categories": [
       "admin"
     ],
-    "summary": "Utrzymuję środowisko do rozwoju i uruchamiania własnych projektów. Łączę pracę na serwerach Linux z konfiguracją dostępu i publikowaniem aplikacji.",
+    "summary": "Pracuję z Ubuntu: sprawdzam usługi, logi i uprawnienia plików. Na serwerach AWS utrzymuję własne aplikacje, korzystając z SSH, Dockera oraz nginx i Caddy.",
     "roles": [
-      "Pracuję z instancjami AWS EC2 i zdalnym dostępem SSH.",
-      "Korzystam z Docker oraz serwerów WWW przy uruchamianiu projektów.",
-      "Sprawdzam usługi, logi i połączenia podczas diagnozowania problemów."
+      "Obsługa serwerów Ubuntu, diagnoza usług i uprawnień oraz utrzymanie własnych aplikacji."
     ],
     "details": [
       {
-        "title": "Praktyczny zakres",
-        "text": "Ubuntu, AWS EC2, SSH i VS Code Remote, praca z Docker, domenami i HTTPS. Serwery pełnią różne role: rozwój, aplikacje oraz przetwarzanie nagrań."
+        "title": "Usługi i logi",
+        "text": "Sprawdzam stan usługi, komunikaty startowe i działanie procesu. Zrzut OpenVPN pokazuje active (running) oraz zakończoną inicjalizację; konfigurację tunelu i połączeń opisuję w obszarze sieci."
       },
       {
-        "title": "Eksploatacja",
-        "text": "Uwzględniam dostęp do środowiska, kopie danych i koszty zasobów. Nowe elementy wdrażam etapami i sprawdzam ich zachowanie."
+        "title": "Uprawnienia w Linux",
+        "text": "W ćwiczeniach odczytuję właściciela, grupę i prawa dostępu przez ls -la oraz stat. Notatki obejmują chmod i specjalne bity uprawnień. Zrzut pochodzi z ćwiczenia laboratoryjnego."
+      },
+      {
+        "title": "Serwery projektowe",
+        "text": "Łączę się przez SSH i VS Code Remote, uruchamiam aplikacje w Dockerze oraz pracuję z domenami, HTTPS, logami i kopiami danych. To infrastruktura moich projektów, nie wdrożenie dla klienta."
       }
     ],
     "stack": [
-      "Ubuntu",
-      "AWS EC2",
+      "Ubuntu / systemd",
       "SSH",
       "Docker",
-      "Caddy / nginx",
-      "GitHub"
+      "AWS EC2",
+      "nginx / Caddy"
     ],
-    "links": [],
-    "images": [],
+    "links": [
+      {
+        "label": "Usługa na Ubuntu",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/10-openvpn-server-setup/openvpn-setup.md"
+      },
+      {
+        "label": "Uprawnienia w Linux",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/linux/linux-file-permissions.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/vpn-service.png",
+        "alt": "Ubuntu: usługa OpenVPN active (running) oraz Initialization Sequence Completed.",
+        "caption": "Ubuntu: usługa OpenVPN active (running) oraz Initialization Sequence Completed.",
+        "width": 1265,
+        "height": 405
+      },
+      {
+        "src": "/images/projects/admin/linux-permissions.png",
+        "alt": "Ćwiczenie Linux: ls -la pokazuje właściciela, grupę oraz uprawnienia plików i katalogów.",
+        "caption": "Ćwiczenie Linux: ls -la pokazuje właściciela, grupę oraz uprawnienia plików i katalogów.",
+        "width": 1098,
+        "height": 620
+      }
+    ],
     "visual": "infrastructure",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład publikacji strony",
-      "title": "Własny projekt pod adresem HTTPS",
-      "steps": [
-        {
-          "title": "Przygotowanie plików",
-          "text": "Organizuję wersję strony do publikacji i pracę na serwerze Ubuntu przez SSH."
-        },
-        {
-          "title": "Domena i serwer WWW",
-          "text": "Łączę poddomenę z serwerem oraz konfigurację Caddy lub nginx z plikami strony."
-        },
-        {
-          "title": "Sprawdzenie działania",
-          "text": "Otwieram stronę przez HTTPS, sprawdzam odnośniki, obrazy i logi przy diagnozowaniu problemów."
-        }
-      ],
-      "note": "Tak łączę pracę nad własnymi aplikacjami z utrzymaniem ich środowiska."
-    }
+    "result": "W laboratorium potwierdziłem działanie usługi OpenVPN przez systemd i log inicjalizacji. Własne projekty, w tym APPLI i portfolio, udostępniam przez HTTPS.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "adminlab",
-    "name": "Learning Admin Lab",
-    "subtitle": "Dokumentacja i praktyka systemowa",
-    "status": "Laboratorium i notatki",
+    "name": "Windows Server i Active Directory",
+    "subtitle": "Domena, konta i administracja ze stacji RSAT",
+    "status": "Praktyka laboratoryjna",
     "statusType": "lab",
     "categories": [
       "admin"
     ],
-    "summary": "Prowadzę repozytorium praktyki z Linux, Windows i podstaw bezpieczeństwa. Zapisuję polecenia, obserwacje i wnioski z ćwiczeń.",
+    "summary": "Zbudowałem domenę Windows Server z DNS i DHCP. Przygotowałem strukturę OU, konta i grupy oraz osobną stację z RSAT do zarządzania środowiskiem.",
     "roles": [
-      "Ćwiczę pracę z użytkownikami, uprawnieniami, usługami i procesami.",
-      "Analizuję logi i połączenia sieciowe w środowisku laboratoryjnym.",
-      "Porządkuję dokumentację i zmiany z użyciem Git."
+      "Konfiguracja domeny, użytkowników i grup, przygotowanie stacji RSAT oraz diagnoza DHCP."
     ],
     "details": [
       {
-        "title": "Forma pracy",
-        "text": "Maszyny wirtualne Ubuntu, Kali Linux i Windows, uporządkowane notatki oraz artefakty ćwiczeń. Repozytorium pokazuje przebieg nauki i obszary, które rozwijam."
+        "title": "Organizacja domeny",
+        "text": "Oddzielne OU dla administratorów, użytkowników, grup, stacji roboczych i serwerów. Konta i członkostwo w grupach przygotowałem pod konkretne scenariusze synchronizacji, licencji i dostępu."
+      },
+      {
+        "title": "Administracja przez RSAT",
+        "text": "Na ws-admin01 zainstalowałem narzędzia AD, Group Policy, DNS i DHCP przez PowerShell. Zarządzanie domeną wykonuję z tej stacji, bez pracy bezpośrednio na kontrolerze."
+      },
+      {
+        "title": "Przykład: brak dzierżawy DHCP",
+        "text": "Po promocji kontrolera domeny Windows otrzymywał adres APIPA. W konsoli DHCP stwierdziłem nieaktywny IPv4. Po aktywacji i restarcie usługi sprawdziłem dzierżawy, nslookup i logowanie; zachowałem zrzuty przed naprawą i po niej."
       }
     ],
     "stack": [
-      "Linux",
-      "Windows",
-      "VirtualBox",
-      "Git",
-      "Logi systemowe"
+      "Windows Server",
+      "AD DS / OU",
+      "GPO / RSAT",
+      "DNS / DHCP"
     ],
     "links": [
       {
-        "label": "Zobacz repozytorium",
-        "url": "https://github.com/DenysNew/learning-admin"
+        "label": "Struktura domeny",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/20-microsoft365/10-onprem-identity/ad_setup.md"
+      },
+      {
+        "label": "Diagnoza i naprawa DHCP",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/windows/active-directory/dhcp-not-working-after-dc-promotion.md"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/projects/admin/ad-structure.png",
+        "alt": "Active Directory: jednostki OU Admins, Users-Lab, Groups, Workstations i Servers w domenie lab.local.",
+        "caption": "Active Directory: jednostki OU Admins, Users-Lab, Groups, Workstations i Servers w domenie lab.local.",
+        "width": 754,
+        "height": 531
+      },
+      {
+        "src": "/images/projects/admin/rsat-tools.png",
+        "alt": "Narzędzia RSAT na stacji administracyjnej: Active Directory, DNS, DHCP i Group Policy Management.",
+        "caption": "Narzędzia RSAT na stacji administracyjnej: Active Directory, DNS, DHCP i Group Policy Management.",
+        "width": 1304,
+        "height": 825
+      },
+      {
+        "src": "/images/projects/admin/dhcp-before.png",
+        "alt": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x.",
+        "caption": "Przed naprawą DHCP: klient Windows z adresem APIPA 169.254.x.x.",
+        "width": 1114,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/dhcp-after.png",
+        "alt": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local.",
+        "caption": "Po naprawie: klient Windows z adresem z sieci laboratoryjnej i sufiksem lab.local.",
+        "width": 1115,
+        "height": 390
+      },
+      {
+        "src": "/images/projects/admin/dns-result.png",
+        "alt": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium.",
+        "caption": "Wynik nslookup: nazwa lab.local zwraca adresy kontrolera domeny w laboratorium.",
+        "width": 961,
+        "height": 218
+      }
+    ],
     "visual": "adminlab",
     "reviewed": "2026-11-14",
-    "process": {
-      "label": "Przykład pracy z dokumentacją",
-      "title": "Od polecenia do notatki w Git",
-      "steps": [
-        {
-          "title": "Ćwiczenie na maszynie wirtualnej",
-          "text": "Pracuję z użytkownikami, uprawnieniami lub usługami w Linux i Windows."
-        },
-        {
-          "title": "Polecenie i obserwacja",
-          "text": "Zapisuję wykonane polecenie, wynik i wniosek z analizy logów lub konfiguracji."
-        },
-        {
-          "title": "Zmiana w repozytorium",
-          "text": "Porządkuję notatkę w VS Code i zapisuję jej historię z użyciem Git oraz GitHub."
-        }
-      ],
-      "note": "Repozytorium jest rozwijanym zapisem nauki i ćwiczeń."
-    }
+    "result": "Po awarii DHCP przywróciłem przydzielanie adresów klientom Windows i Ubuntu. Sprawdziłem odpowiedź DNS oraz logowanie do domeny.",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
+  },
+  {
+    "id": "network",
+    "name": "Sieci i zdalny dostęp",
+    "subtitle": "Sieć laboratorium, routing i połączenie przez VPN",
+    "status": "Praktyka laboratoryjna",
+    "statusType": "lab",
+    "categories": [
+      "admin"
+    ],
+    "summary": "Zorganizowałem sieć maszyn w VirtualBox: NAT do internetu i osobną sieć lab-net. Skonfigurowałem OpenVPN z certyfikatami oraz routing do zasobów laboratorium.",
+    "result": "Klient zestawił tunel VPN i dotarł do kontrolera domeny. Test ping zakończył się czterema odpowiedziami bez utraty pakietów.",
+    "roles": [
+      "Konfiguracja sieci maszyn wirtualnych, certyfikatów VPN, przekierowania portu i routingu."
+    ],
+    "details": [
+      {
+        "title": "Sieci w VirtualBox",
+        "text": "Oddzieliłem dostęp do internetu od komunikacji wewnętrznej. Przy problemach z łącznością sprawdzałem adresację, tablicę routingu i DNS; brama domyślna pozostała na interfejsie NAT."
+      },
+      {
+        "title": "Tunel i certyfikaty",
+        "text": "Na Ubuntu przygotowałem OpenVPN i Easy-RSA: CA, certyfikaty serwera i klienta oraz profil połączenia. Ustawiłem przekierowanie UDP 1194, forwarding, trasę do lab-net i regułę NAT."
+      },
+      {
+        "title": "Weryfikacja połączenia",
+        "text": "Sprawdziłem połączenie w OpenVPN Connect i odpowiedź kontrolera domeny 10.10.10.10 przez tunel. Zrzuty pokazują konfigurację wirtualnej sieci, połączonego klienta i wynik testu."
+      }
+    ],
+    "stack": [
+      "VirtualBox",
+      "NAT / routing",
+      "OpenVPN / Easy-RSA",
+      "Diagnostyka sieci"
+    ],
+    "links": [
+      {
+        "label": "Układ laboratorium",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/10-admin/lab-virtualization/week-01-lab-deployment.md"
+      },
+      {
+        "label": "Konfiguracja i test VPN",
+        "url": "https://github.com/DenysNew/learning-admin/blob/main/30-vpn/30-network-access/network-access.md"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/admin/virtualbox-network.png",
+        "alt": "VirtualBox: Ubuntu Server z kartą w sieci wewnętrznej lab-net.",
+        "caption": "VirtualBox: Ubuntu Server z kartą w sieci wewnętrznej lab-net.",
+        "width": 940,
+        "height": 527
+      },
+      {
+        "src": "/images/projects/admin/vpn-client.png",
+        "alt": "OpenVPN Connect: Securely Connected, profil client1 i adresy laboratoryjnego połączenia.",
+        "caption": "OpenVPN Connect: Securely Connected, profil client1 i adresy laboratoryjnego połączenia.",
+        "width": 597,
+        "height": 943
+      },
+      {
+        "src": "/images/projects/admin/vpn-ping.png",
+        "alt": "Połączenie przez VPN z kontrolerem domeny 10.10.10.10: cztery odpowiedzi, zero utraconych pakietów.",
+        "caption": "Połączenie przez VPN z kontrolerem domeny 10.10.10.10: cztery odpowiedzi, zero utraconych pakietów.",
+        "width": 1060,
+        "height": 510
+      }
+    ],
+    "visual": "network",
+    "reviewed": "2026-11-14",
+    "compactHeading": true,
+    "wideHeading": true,
+    "detailsLabel": "Zakres i szczegóły"
   },
   {
     "id": "securitylab",
